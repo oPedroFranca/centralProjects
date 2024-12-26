@@ -1,6 +1,6 @@
 const LeftNavigation = () => {
   return (
-    <div className='min-w-[250px] h-full bg-gray-800'>
+    <div className='min-w-[250px] h-full'>
       <p>
         Left Navigation
       </p>
