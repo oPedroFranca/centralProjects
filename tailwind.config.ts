@@ -13,8 +13,10 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         
+        'gray-500': '#3e3e3e',
         'gray-600': '#212121',
-        'gray-800': '#171717', 
+        'gray-700': '#1C1C1F',
+        'gray-800': '#161618',
       },
     },
   },
