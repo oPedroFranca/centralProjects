@@ -6,7 +6,7 @@ export default function Home() {
       <LeftNavigation />
 
       <div 
-        className='w-full h-full m-1.5 p-2 border border-gray-500 rounded-md'
+        className='w-full h-full m-1.5 border border-gray-500 rounded-2xl'
         style={{height: 'calc(100% - 10px)'}}
       >
         <Header />
