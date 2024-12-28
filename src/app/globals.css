@@ -5,12 +5,14 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --fontSize: 14px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #161618;
     --foreground: #ededed;
+    --fontSize: 14px;
   }
 }
 
@@ -18,4 +20,5 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+  font-size: var(--fontSize);
 }
