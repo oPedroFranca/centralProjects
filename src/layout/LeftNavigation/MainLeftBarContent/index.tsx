@@ -52,8 +52,7 @@ export const MainLeftBarContent = () => {
             </div>
 
             <p className={`
-              text-gray-300 
-              ${categorie.isSelected ? 'text-gray-200' : 'group-hover:text-gray-200'} 
+              ${categorie.isSelected ? 'text-gray-100' : 'group-hover:text-gray-200'} 
               transition-all 
               duration-300
             `}>
