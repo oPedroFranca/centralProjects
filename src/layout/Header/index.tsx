@@ -1,11 +1,11 @@
+import * as S from './styles';
+
 const Header = () => {
   return (
-    <div className='w-full h-[60px] border-b border-gray-500 p-2'>
-      <p>
-        Header
-      </p>
-    </div>
-  )
+    <S.Container>
+      <p>Header</p>
+    </S.Container>
+  );
 };
 
 export default Header;

@@ -1,14 +1,11 @@
+import * as S from './styles';
+
 const MainContent = () => {
   return (
-    <div 
-      className='bg-gray-700 p-5 m-2 border border-gray-500 rounded-md center'
-      style={{height: 'calc(100% - 75px)'}}
-    >
-      <p>
-        MainContent
-      </p>
-    </div>
-  )
+    <S.Container>
+      <p>MainContent</p>
+    </S.Container>
+  );
 };
 
 export default MainContent;

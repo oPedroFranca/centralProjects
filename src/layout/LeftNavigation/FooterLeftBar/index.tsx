@@ -1,22 +1,20 @@
+import * as S from './styles';
 
 const FooterLeftBar = () => {
   return (
-    <div 
-      className="h-[40px] border-gray-500 flex justify-center items-center mt-auto"
-    >
-      <div className='text-xs text-gray-400 font-semibold flex'>
+    <S.Container>
+      <S.TextWrapper>
         <p>created by</p>
-        <a 
+        <S.Link 
           href="https://www.linkedin.com/in/pedro-henrique-frança/" 
           target="_blank" 
-          rel="noopener noreferrer" 
-          className='cursor-pointer ml-1 text-purple-200'
+          rel="noopener noreferrer"
         >
           Tesseract
-        </a>
-      </div>
-    </div>
-  )
+        </S.Link>
+      </S.TextWrapper>
+    </S.Container>
+  );
 };
 
 export default FooterLeftBar;

@@ -1,18 +1,15 @@
 import { Header, LeftNavigation, MainContent } from '@/layout';
+import * as S from './styles';
 
 export default function Home() {
   return (
-    <div className='flex h-screen w-screen'>
+    <S.Wrapper>
       <LeftNavigation />
 
-      <div 
-        className='w-full h-full m-2 ml-0 border border-gray-500 rounded-2xl'
-        style={{height: 'calc(100% - 18px)'}}
-      >
+      <S.MainArea>
         <Header />
-
         <MainContent />
-      </div>
-    </div>
+      </S.MainArea>
+    </S.Wrapper>
   );
 }
