@@ -1,16 +1,17 @@
 import React from 'react';
 import * as S from './styles';
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
+  variant?: 'primary' | 'secondary';
 }
 
 const Button: React.FC<ButtonProps> = ({
-  children
+  children,
+  variant = 'primary',
 }) => {
-
   return (
-    <S.Button>
+    <S.Button $variant={variant}>
       {children}
     </S.Button>
   );

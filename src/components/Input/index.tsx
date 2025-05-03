@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from './styles';
 
-interface InputProps {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   type?: string;
   placeholder?: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;

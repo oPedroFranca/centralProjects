@@ -17,5 +17,5 @@ export const Input = tw.input`
   
   transition
   duration-300
-  cease-in-out
+  ease-in-out
 `;

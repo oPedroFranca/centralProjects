@@ -1,3 +1,4 @@
+import { FaGoogle, FaGithub, FaLinkedin } from 'react-icons/fa';
 import * as S from './styles';
 import Image from 'next/image';
 import logo from '../../../../public/logo.png';
@@ -13,16 +14,26 @@ export default function Login() {
           </S.Logo>
           <S.Title>Tesseract</S.Title>
         </S.LogoContainer>
+
         <S.Form>
           <Input type="email" placeholder="E-mail" />
           <Input type="password" placeholder="Senha" />
-          <S.LoginButton>Entrar</S.LoginButton>
+          <Button>Entrar</Button>
+
           <S.Options>
-            <p className="text-white text-sm">Esqueceu a senha?</p>
-            <div className="flex justify-center gap-4 mt-4">
-              <Button>Google</Button>
-              <Button>Facebook</Button>
-            </div>
+            <p>Forgot your password?</p>
+
+            <S.Divider>
+              <S.Line />
+              <S.DividerText>Sign in with</S.DividerText>
+              <S.Line />
+            </S.Divider>
+
+            <S.SocialButtons>
+              <Button variant="secondary"> <FaGoogle /></Button>
+              <Button variant="secondary"> <FaLinkedin /></Button>
+              <Button variant="secondary"> <FaGithub /></Button>
+            </S.SocialButtons>
           </S.Options>
         </S.Form>
       </div>

@@ -25,7 +25,6 @@ export const Title = tw.h1`
   font-bold
   tracking-wide
   text-white
-
   tracking-wider
 `;
 
@@ -33,7 +32,8 @@ export const Form = tw.div`
   bg-gray-800
   p-8
   rounded-xl
-  w-96
+  w-full
+  max-w-[380px]
   text-white
 `;
 
@@ -53,3 +53,28 @@ export const Options = tw.div`
   mt-4
 `;
 
+export const Divider = tw.div`
+  flex
+  items-center
+  gap-4
+  my-4
+`;
+
+export const Line = tw.div`
+  flex-grow
+  border-t
+  border-gray-400
+`;
+
+export const DividerText = tw.span`
+  text-white
+  text-sm
+  whitespace-nowrap
+`;
+
+export const SocialButtons = tw.div`
+  flex
+  justify-center
+  gap-4
+  mt-4
+`;
