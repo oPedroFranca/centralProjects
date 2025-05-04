@@ -73,3 +73,10 @@ export const FlexBetween = tw.div`
   justify-between
   mt-4
 `;
+
+export const SignInLink = tw.a`
+  text-white
+  no-underline
+  hover:underline
+  cursor-pointer
+`;

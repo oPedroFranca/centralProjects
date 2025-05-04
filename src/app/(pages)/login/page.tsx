@@ -9,7 +9,6 @@ import { Button, Input } from '@/components';
 import * as S from './styles';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import Link from 'next/link';
 
 interface LoginForm {
   email: string;
@@ -76,9 +75,7 @@ export default function Login() {
           <S.Options>
             <S.FlexBetween>
               <p>Forgot your password?</p>
-              <Link href="/register">
-                <p style={{ cursor: 'pointer', color: 'blue', textDecoration: 'underline' }}>Register</p>
-              </Link>
+              <S.SignInLink href="/register">Sign in</S.SignInLink>
             </S.FlexBetween>
 
             <S.Divider>
