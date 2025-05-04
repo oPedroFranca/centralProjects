@@ -4,7 +4,7 @@ export const Container = tw.div`
   h-[60px]
   border-b-2
   border-dotted
-  border-gray-500
+  border-primary-gray-500
   flex
   items-center
 `;

@@ -18,19 +18,19 @@ export const Button = tw.button<ButtonStyleProps>`
 
   focus:outline-none
   focus:ring-2
-  focus:ring-gray-500
+  focus:ring-primary-gray-500
 
   ${(p) =>
     p.$variant === 'primary' &&
     `
       m-auto
-      text-gray-900
+      text-primary-gray-900
       bg-white
-      hover:bg-gray-100
+      hover:bg-primary-gray-100
 
       border
-      border-gray-400
-      hover:border-gray-600
+      border-primary-gray-400
+      hover:border-primary-gray-600
 
       font-medium
       rounded-lg
@@ -39,10 +39,10 @@ export const Button = tw.button<ButtonStyleProps>`
       py-2.5
       text-center
 
-      dark:bg-gray-600
-      dark:border-gray-400
-      dark:hover:bg-gray-500
-      dark:hover:border-gray-300
+      dark:bg-primary-gray-600
+      dark:border-primary-gray-400
+      dark:hover:bg-primary-gray-500
+      dark:hover:border-primary-gray-300
       dark:text-white
     `}
 
@@ -53,19 +53,19 @@ export const Button = tw.button<ButtonStyleProps>`
       h-10
 
       bg-white
-      text-gray-900
+      text-primary-gray-900
 
       border
-      border-gray-400
+      border-primary-gray-400
       rounded-full
 
-      hover:bg-gray-100
-      hover:border-gray-600
+      hover:bg-primary-gray-100
+      hover:border-primary-gray-600
 
-      dark:bg-gray-600
-      dark:border-gray-400
-      dark:hover:bg-gray-500
-      dark:hover:border-gray-300
+      dark:bg-primary-gray-600
+      dark:border-primary-gray-400
+      dark:hover:bg-primary-gray-500
+      dark:hover:border-primary-gray-300
       dark:text-white
     `}
 `;

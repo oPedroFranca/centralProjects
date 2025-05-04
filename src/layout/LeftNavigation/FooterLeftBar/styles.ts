@@ -2,7 +2,7 @@ import tw from 'tailwind-styled-components';
 
 export const Container = tw.div`
   h-[40px]
-  border-gray-500
+  border-primary-gray-500
   flex
   justify-center
   items-center
@@ -11,7 +11,7 @@ export const Container = tw.div`
 
 export const TextWrapper = tw.div`
   text-xs
-  text-gray-400
+  text-primary-gray-400
   font-semibold
   flex
 `;
@@ -19,5 +19,5 @@ export const TextWrapper = tw.div`
 export const Link = tw.a`
   cursor-pointer
   ml-1
-  text-purple-200
+  text-secondary-purple-200
 `;

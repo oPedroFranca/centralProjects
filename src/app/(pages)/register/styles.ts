@@ -16,8 +16,8 @@ export const LogoContainer = tw.div`
 `;
 
 export const Logo = tw.div`
-  h-16
-  w-16
+  h-[70px]
+  w-[70px]
 `;
 
 export const Title = tw.h1`
@@ -32,7 +32,7 @@ export const Form = tw.div`
   bg-primary-gray-800
   p-8
   rounded-xl
-  w-[380px]
+  w-[400px]
   text-white
 `;
 
@@ -72,4 +72,11 @@ export const FlexBetween = tw.div`
   flex
   justify-between
   mt-4
+`;
+
+export const SignInLink = tw.a`
+  text-white
+  no-underline
+  hover:underline
+  cursor-pointer
 `;

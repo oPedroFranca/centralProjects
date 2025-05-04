@@ -16,7 +16,7 @@ export const Input = tw.input<InputProps>`
   text-white
   bg-transparent
   rounded-lg
-  placeholder-gray-400
+  placeholder-primary-gray-400
   
   border
 
@@ -30,12 +30,12 @@ export const Input = tw.input<InputProps>`
   ${({ hasErrorMessage }) =>
     hasErrorMessage
       ? 'border-red-500'
-      : 'border-gray-400 mb-4'}
+      : 'border-primary-gray-400 mb-4'}
 
   ${({ hasErrorMessage }) =>
     hasErrorMessage
       ? 'focus:border-red-500'
-      : 'focus:border-gray-300'}
+      : 'focus:border-primary-gray-300'}
 `;
 
 export const ErrorWrapper = tw.div`

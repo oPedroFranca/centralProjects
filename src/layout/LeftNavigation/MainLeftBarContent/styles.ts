@@ -8,7 +8,7 @@ export const Container = tw.div`
 `;
 
 export const Title = tw.p`
-  text-gray-400
+  text-primary-gray-400
 `;
 
 export const List = tw.div`
@@ -52,7 +52,7 @@ export const ColorCircle = tw.span`
   h-full
   rounded-full
   border-2
-  border-gray-800
+  border-primary-gray-800
   transition-all
   duration-300
 `;
@@ -65,6 +65,6 @@ export const CategorieName = tw.p<CategorieNameProps>`
   transition-all
   duration-300
   ${({ $isSelected }) => $isSelected
-    ? 'text-gray-100'
-    : 'group-hover:text-gray-200'}
+    ? 'text-primary-gray-100'
+    : 'group-hover:text-primary-gray-200'}
 `;

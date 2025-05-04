@@ -1,11 +1,11 @@
 import tw from 'tailwind-styled-components';
 
 export const Container = tw.div`
-  bg-gray-700
+  bg-primary-gray-700
   p-5
   m-2 
   border 
-  border-gray-500 
+  border-primary-gray-500 
   rounded-xl
   flex
   items-center

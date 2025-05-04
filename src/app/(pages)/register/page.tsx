@@ -4,19 +4,27 @@ import { FaGoogle, FaGithub, FaLinkedin } from 'react-icons/fa';
 import Image from 'next/image';
 import * as yup from 'yup';
 
-import logo from '../../../../public/logo.png';
+import logo from '../../../../public/logoVersionTwo.png';
 import { Button, Input } from '@/components';
 import * as S from './styles';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import Link from 'next/link';
 
-interface LoginForm {
+interface RegisterForm {
+  name: string;
+  username: string;
   email: string;
   password: string;
+  confirmPassword: string;
 }
 
-const loginSchema = yup.object({
+const registerSchema = yup.object({
+  name: yup
+    .string()
+    .required('Required field'),
+  username: yup
+    .string()
+    .required('Required field'),
   email: yup
     .string()
     .required('Required field')
@@ -24,19 +32,24 @@ const loginSchema = yup.object({
   password: yup
     .string()
     .required('Required field')
+    .min(6, 'Password must be at least 6 characters'),
+  confirmPassword: yup
+    .string()
+    .oneOf([yup.ref('password')], 'Passwords must match')
+    .required('Required field'),
 });
 
-export default function Login() {
+export default function Register() {
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<{ email: string; password: string }>({
-    resolver: yupResolver(loginSchema),
+  } = useForm<RegisterForm>({
+    resolver: yupResolver(registerSchema),
   });
 
-  const onSubmit = async (data: LoginForm) => {
+  const onSubmit = async (data: RegisterForm) => {
     console.log('dados validados', data);
     // TODO: autenticar
   };
@@ -57,6 +70,22 @@ export default function Login() {
         </S.LogoContainer>
 
         <S.Form onSubmit={handleSubmit(onSubmit)}>
+          <div className="flex gap-2.5 justify-between">
+            <Input
+              type="text"
+              placeholder="Name"
+              {...register('name')}
+              error={errors.name?.message}
+            />
+
+            <Input
+              type="text"
+              placeholder="Username"
+              {...register('username')}
+              error={errors.username?.message}
+            />
+          </div>
+
           <Input
             type="email"
             placeholder="E-mail"
@@ -71,19 +100,25 @@ export default function Login() {
             error={errors.password?.message}
           />
 
-          <Button type="submit" onClick={handleSubmit(onSubmit)} >Entrar</Button>
+          <Input
+            type="password"
+            placeholder="Repeat Password"
+            {...register('confirmPassword')}
+            error={errors.confirmPassword?.message}
+          />
+
+          <Button type="submit" onClick={handleSubmit(onSubmit)} >Register</Button>
 
           <S.Options>
             <S.FlexBetween>
-              <p>Forgot your password?</p>
-              <Link href="/register">
-                <p style={{ cursor: 'pointer', color: 'blue', textDecoration: 'underline' }}>Register</p>
-              </Link>
+              <p></p>
+
+              <S.SignInLink href="/login">Sign in</S.SignInLink>
             </S.FlexBetween>
 
             <S.Divider>
               <S.Line />
-              <S.DividerText>Sign in with</S.DividerText>
+              <S.DividerText>Register with</S.DividerText>
               <S.Line />
             </S.Divider>
 

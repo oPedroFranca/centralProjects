@@ -12,7 +12,7 @@ export const MainArea = tw.div`
   m-2
   ml-0
   border
-  border-gray-500
+  border-primary-gray-500
   rounded-2xl
   h-[calc(100%-18px)]
 
