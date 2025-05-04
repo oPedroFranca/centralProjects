@@ -15,20 +15,24 @@ const Input: React.FC<InputProps> = ({
   onChange,
   value,
   error,
-}) => {
+  ...rest
+}) => (
+  <S.Container>
+    <S.Input
+      type={type}
+      placeholder={placeholder}
+      onChange={onChange}
+      value={value}
+      hasErrorMessage={!!error}
+      {...rest}
+    />
 
-  return (
-    <>
-      <S.Input
-        type={type}
-        placeholder={placeholder}
-        onChange={onChange}
-        value={value}
-      />
-
-      {error && <S.ErrorMessage>{error}</S.ErrorMessage>}
-    </>
-  );
-};
+    {error && (
+      <S.ErrorWrapper>
+        <S.ErrorMessage>{error}</S.ErrorMessage>
+      </S.ErrorWrapper>
+    )}
+  </S.Container>
+);
 
 export default Input;

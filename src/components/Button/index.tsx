@@ -9,9 +9,10 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 const Button: React.FC<ButtonProps> = ({
   children,
   variant = 'primary',
+  ...rest
 }) => {
   return (
-    <S.Button $variant={variant}>
+    <S.Button $variant={variant} {...rest} >
       {children}
     </S.Button>
   );

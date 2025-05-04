@@ -32,8 +32,7 @@ export const Form = tw.div`
   bg-gray-800
   p-8
   rounded-xl
-  w-full
-  max-w-[380px]
+  w-[380px]
   text-white
 `;
 
