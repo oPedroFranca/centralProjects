@@ -6,22 +6,28 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   placeholder?: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   value?: string | number;
+  error?: string;
 }
 
 const Input: React.FC<InputProps> = ({
   type = 'text',
   placeholder,
   onChange,
-  value
+  value,
+  error,
 }) => {
 
   return (
-    <S.Input
-      type={type}
-      placeholder={placeholder}
-      onChange={onChange}
-      value={value}
-    />
+    <>
+      <S.Input
+        type={type}
+        placeholder={placeholder}
+        onChange={onChange}
+        value={value}
+      />
+
+      {error && <S.ErrorMessage>{error}</S.ErrorMessage>}
+    </>
   );
 };
 

@@ -19,3 +19,10 @@ export const Input = tw.input`
   duration-300
   ease-in-out
 `;
+
+export const ErrorMessage = tw.p`
+  text-red-500
+  text-sm
+  mt-1
+  mb-3
+`;
