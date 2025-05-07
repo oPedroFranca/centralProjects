@@ -4,7 +4,7 @@ import { FaGoogle, FaGithub, FaLinkedin } from 'react-icons/fa';
 import Image from 'next/image';
 import * as yup from 'yup';
 
-import logo from '../../../../public/logo.png';
+import logo from '../../../../public/logoVersionTwo.png';
 import { Button, Input } from '@/components';
 import * as S from './styles';
 import { yupResolver } from '@hookform/resolvers/yup';

@@ -16,8 +16,8 @@ export const LogoContainer = tw.div`
 `;
 
 export const Logo = tw.div`
-  h-16
-  w-16
+  h-[70px]
+  w-[70px]
 `;
 
 export const Title = tw.h1`
