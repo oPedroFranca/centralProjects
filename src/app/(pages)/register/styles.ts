@@ -2,9 +2,9 @@ import tw from 'tailwind-styled-components';
 
 export const Container = tw.div`
   flex
+  flex-col
   h-screen
   w-screen
-  justify-center
   items-center
 `;
 
@@ -13,6 +13,7 @@ export const LogoContainer = tw.div`
   flex-col
   justify-center
   items-center
+  mt-auto
 `;
 
 export const Logo = tw.div`
@@ -32,8 +33,10 @@ export const Form = tw.div`
   bg-primary-gray-800
   p-8
   rounded-xl
-  w-[400px]
   text-white
+  mb-auto
+  w-full          
+  max-w-[450px]      
 `;
 
 

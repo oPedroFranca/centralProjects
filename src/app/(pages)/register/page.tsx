@@ -2,13 +2,18 @@
 
 import { FaGoogle, FaGithub, FaLinkedin } from 'react-icons/fa';
 import Image from 'next/image';
-import * as yup from 'yup';
 
 import logo from '../../../../public/logoVersionTwo.png';
 import { Button, Input } from '@/components';
-import * as S from './styles';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
+
+import * as yup from 'yup';
+import * as S from './styles';
+
+import { MdOutlineEmail } from "react-icons/md";
+import { FiUser } from "react-icons/fi";
+import { LuLock } from "react-icons/lu";
 
 interface RegisterForm {
   name: string;
@@ -56,26 +61,27 @@ export default function Register() {
 
   return (
     <S.Container>
-      <div>
-        <S.LogoContainer>
-          <S.Logo>
-            <Image
-              src={logo}
-              alt="Logo"
-              className="h-full w-full object-contain"
-              priority
-            />
-          </S.Logo>
-          <S.Title>Tesseract</S.Title>
-        </S.LogoContainer>
+      <S.LogoContainer>
+        <S.Logo>
+          <Image
+            src={logo}
+            alt="Logo"
+            className="h-full w-full object-contain"
+            priority
+          />
+        </S.Logo>
+        <S.Title>Tesseract</S.Title>
+      </S.LogoContainer>
 
-        <S.Form onSubmit={handleSubmit(onSubmit)}>
+      <S.Form onSubmit={handleSubmit(onSubmit)}>
+        <div className="flex flex-col gap-4 ">
           <div className="flex gap-2.5 justify-between">
             <Input
               type="text"
               placeholder="Name"
               {...register('name')}
               error={errors.name?.message}
+              leftIcon={<FiUser size={16} />}
             />
 
             <Input
@@ -83,6 +89,7 @@ export default function Register() {
               placeholder="Username"
               {...register('username')}
               error={errors.username?.message}
+              leftIcon={<FiUser size={16} />}
             />
           </div>
 
@@ -91,6 +98,7 @@ export default function Register() {
             placeholder="E-mail"
             {...register('email')}
             error={errors.email?.message}
+            leftIcon={<MdOutlineEmail size={16} />}
           />
 
           <Input
@@ -98,6 +106,7 @@ export default function Register() {
             placeholder="Password"
             {...register('password')}
             error={errors.password?.message}
+            leftIcon={<LuLock size={16} />}
           />
 
           <Input
@@ -105,31 +114,33 @@ export default function Register() {
             placeholder="Repeat Password"
             {...register('confirmPassword')}
             error={errors.confirmPassword?.message}
+            leftIcon={<LuLock size={16} />}
           />
 
           <Button type="submit" onClick={handleSubmit(onSubmit)} >Register</Button>
+        </div>
 
-          <S.Options>
-            <S.FlexBetween>
-              <p></p>
 
-              <S.SignInLink href="/login">Sign in</S.SignInLink>
-            </S.FlexBetween>
+        <S.Options>
+          <S.FlexBetween>
+            <p></p>
 
-            <S.Divider>
-              <S.Line />
-              <S.DividerText>Register with</S.DividerText>
-              <S.Line />
-            </S.Divider>
+            <S.SignInLink href="/login">Sign in</S.SignInLink>
+          </S.FlexBetween>
 
-            <S.SocialButtons>
-              <Button variant="secondary"> <FaGoogle /></Button>
-              <Button variant="secondary"> <FaLinkedin /> </Button>
-              <Button variant="secondary"><FaGithub /> </Button>
-            </S.SocialButtons>
-          </S.Options>
-        </S.Form>
-      </div>
+          <S.Divider>
+            <S.Line />
+            <S.DividerText>Register with</S.DividerText>
+            <S.Line />
+          </S.Divider>
+
+          <S.SocialButtons>
+            <Button variant="secondary"> <FaGoogle /> </Button>
+            <Button variant="secondary"> <FaLinkedin /> </Button>
+            <Button variant="secondary"> <FaGithub /> </Button>
+          </S.SocialButtons>
+        </S.Options>
+      </S.Form>
     </S.Container>
   );
 }
