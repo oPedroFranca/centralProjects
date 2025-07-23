@@ -34,7 +34,7 @@ interface InputProps {
 export const Input = tw.input<InputProps>`
   w-full
   h-10 
-  pr-10
+  pr-3
 
   ${({ hasLeftIcon }) => (hasLeftIcon ? 'pl-10' : 'pl-3')}
 

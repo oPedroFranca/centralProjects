@@ -1,4 +1,4 @@
-import { Header, LeftNavigation, MainContent } from '@/layout';
+import { Header, LeftNavigation, MainContent } from '@/shared/layout';
 import * as S from './styles';
 
 export default function Home() {
