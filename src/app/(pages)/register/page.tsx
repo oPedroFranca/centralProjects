@@ -7,13 +7,14 @@ import logo from '../../../../public/logoVersionTwo.png';
 import { Button, Input } from '@/components';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-
-import * as yup from 'yup';
-import * as S from './styles';
+import { usePostRegister } from '@/shared/hooks';
 
 import { MdOutlineEmail } from "react-icons/md";
 import { FiUser } from "react-icons/fi";
 import { LuLock } from "react-icons/lu";
+
+import * as yup from 'yup';
+import * as S from './styles';
 
 interface RegisterForm {
   name: string;
@@ -45,6 +46,7 @@ const registerSchema = yup.object({
 });
 
 export default function Register() {
+  const { registerUser } = usePostRegister()
 
   const {
     register,
@@ -55,7 +57,14 @@ export default function Register() {
   });
 
   const onSubmit = async (data: RegisterForm) => {
-    console.log('dados validados', data);
+    const formatRegisterPost = {
+      name: data.name,
+      userName: data.username,
+      email: data.email,
+      password: data.password,
+    };
+
+    await registerUser(formatRegisterPost)
     // TODO: autenticar
   };
 
