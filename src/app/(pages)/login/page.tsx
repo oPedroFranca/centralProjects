@@ -9,6 +9,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { MdOutlineEmail } from "react-icons/md";
 import { LuLock } from "react-icons/lu";
+import { usePostLogin } from '@/shared/hooks/api/usePostLogin';
 
 import * as S from './styles';
 import * as yup from 'yup';
@@ -29,6 +30,7 @@ const loginSchema = yup.object({
 });
 
 export default function Login() {
+  const { loginUser } = usePostLogin();
 
   const {
     register,
@@ -39,8 +41,12 @@ export default function Login() {
   });
 
   const onSubmit = async (data: LoginForm) => {
-    console.log('dados validados', data);
-    // TODO: autenticar
+    const formatDataLogin = {
+      email: data.email,
+      password: data.password
+    }
+
+    await loginUser(formatDataLogin)
   };
 
   return (
