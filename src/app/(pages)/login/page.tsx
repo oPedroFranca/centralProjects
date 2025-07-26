@@ -89,7 +89,7 @@ export default function Login() {
         <S.Options>
           <S.FlexBetween>
             <p>Forgot your password?</p>
-            <S.SignInLink href="/register">Sign in</S.SignInLink>
+            <S.SignInLink href="/register">Register</S.SignInLink>
           </S.FlexBetween>
 
           <S.Divider>
@@ -100,11 +100,9 @@ export default function Login() {
 
           <S.SocialButtons>
             <Button variant="secondary">
-              {" "}
               <FaGoogle />
             </Button>
             <Button variant="secondary">
-              {" "}
               <FaLinkedin />{" "}
             </Button>
             <Button variant="secondary">

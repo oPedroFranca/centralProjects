@@ -1,3 +1,5 @@
-export { default as Input } from './Input';
+export { Input } from "./Input";
 
-export { default as Button } from './Button';
+export { Button } from "./Button";
+
+export { SpinLoading } from "./SpinLoading";

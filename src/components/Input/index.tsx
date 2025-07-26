@@ -11,7 +11,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   leftIcon?: React.ReactNode;
 }
 
-const Input: React.FC<InputProps> = ({
+export const Input: React.FC<InputProps> = ({
   type = 'text',
   placeholder,
   onChange,
@@ -40,5 +40,3 @@ const Input: React.FC<InputProps> = ({
     {error && <ErrorMessage message={error} />}
   </S.Container>
 );
-
-export default Input;
