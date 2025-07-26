@@ -2,10 +2,10 @@ import tw from "tailwind-styled-components";
 
 export const Container = tw.div`
   mt-auto
-  mb-3
+  mb-4
   pt-3
   border-t
-  border-white/10
+  border-white/20
 `;
 
 export const TextWrapper = tw.div`

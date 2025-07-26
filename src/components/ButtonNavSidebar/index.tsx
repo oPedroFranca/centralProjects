@@ -1,41 +1,40 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import * as S from './styles';
-interface ButtonNavSidebarProps {
-  categoryName: string;
-  selectedCategoryId: string;
+
+interface ButtonNavSidebarProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  Text?: string;
+  isSelected?: boolean;
   isMinimized: boolean;
-  categoryId: string;
-  handleCategoryClick: (id: string) => void;
+  handleCategoryClick: () => void;
+  icon?: ReactNode;
 }
 
 export const ButtonNavSidebar = ({
-  categoryName,
-  selectedCategoryId,
+  Text,
+  isSelected = false,
   isMinimized,
-  categoryId,
   handleCategoryClick,
+  icon,
   ...rest
 }: ButtonNavSidebarProps) => {
   return (
     <S.ButtonNavSidebar
-      selectedCategoryId={selectedCategoryId}
+      isSelected={isSelected}
       isMinimized={isMinimized}
-      categoryId={categoryId}
-      onClick={() => handleCategoryClick(categoryId)}
-      title={isMinimized ? categoryName : undefined}
+      onClick={handleCategoryClick}
+      title={isMinimized ? Text : undefined}
       {...rest}
     >
-      {selectedCategoryId === categoryId ? (
+      {icon ? (
+        <span>{icon}</span>
+      ) : isSelected ? (
         <S.FolderOpen />
       ) : (
         <S.FolderClosed />
       )}
 
-      {!isMinimized && (
-        <S.CategoryName>{categoryName}</S.CategoryName>
-      )}
+      {!isMinimized && <S.CategoryName>{Text}</S.CategoryName>}
 
-      {/* Subtle shine effect on hover */}
       <S.HoverEffectDiv />
     </S.ButtonNavSidebar>
   );
