@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FiEye, FiEyeOff } from 'react-icons/fi';
 import ErrorMessage from './ErrorMessage';
 import * as S from './styles';
 
@@ -19,24 +20,44 @@ export const Input: React.FC<InputProps> = ({
   error,
   leftIcon,
   ...rest
-}) => (
-  <S.Container>
-    <S.InputWrapper>
-      {leftIcon && <S.LeftIcon>{leftIcon}</S.LeftIcon>}
+}) => {
+  const [showPassword, setShowPassword] = useState(false);
+  const isPassword = type === 'password';
+  const inputType = isPassword && showPassword ? 'text' : type;
 
-      <S.Input
-        type={type}
-        placeholder={placeholder}
-        onChange={onChange}
-        value={value}
-        hasLeftIcon={!!leftIcon}
-        hasErrorMessage={!!error}
-        {...rest}
-      />
+  const togglePasswordVisibility = () => {
+    setShowPassword(prev => !prev);
+  };
 
-      {error && (<S.AlertIcon />)}
-    </S.InputWrapper>
+  return (
+    <S.Container>
+      <S.InputWrapper>
+        {leftIcon && <S.LeftIcon>{leftIcon}</S.LeftIcon>}
 
-    {error && <ErrorMessage message={error} />}
-  </S.Container>
-);
+        <S.Input
+          type={inputType}
+          placeholder={placeholder}
+          onChange={onChange}
+          value={value}
+          $hasLeftIcon={!!leftIcon}
+          $hasErrorMessage={!!error}
+          {...rest}
+        />
+
+        {isPassword && (
+          <S.EyeIcon onClick={togglePasswordVisibility}>
+            {showPassword ? <FiEyeOff size={16} /> : <FiEye size={16} />}
+          </S.EyeIcon>
+        )}
+
+        {error &&
+          <S.AlertIcon
+            className={isPassword ? 'right-9' : 'right-3'}
+          />
+        }
+      </S.InputWrapper>
+
+      {error && <ErrorMessage message={error} />}
+    </S.Container>
+  );
+};

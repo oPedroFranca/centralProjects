@@ -65,7 +65,6 @@ export default function Register() {
     };
 
     await registerUser(formatRegisterPost)
-    // TODO: autenticar
   };
 
   return (

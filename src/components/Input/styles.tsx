@@ -36,7 +36,7 @@ export const Input = tw.input<InputProps>`
   h-10 
   pr-3
 
-  ${({ hasLeftIcon }) => (hasLeftIcon ? 'pl-10' : 'pl-3')}
+  ${({ $hasLeftIcon }) => ($hasLeftIcon ? 'pl-10' : 'pl-3')}
 
   transition-all
   duration-300
@@ -49,15 +49,26 @@ export const Input = tw.input<InputProps>`
   border
   focus:outline-none
   
-  ${({ hasErrorMessage }) =>
-    hasErrorMessage
+  ${({ $hasErrorMessage }) =>
+    $hasErrorMessage
       ? 'border-red-400/50 focus:border-red-400/50 bg-red-500/5'
       : 'border-white/20 focus:border-primary/50 focus:bg-background/60'}
 `;
 
-export const AlertIcon = tw(IoAlertCircleOutline)`
+export const EyeIcon = tw.div`
   absolute
   right-3
+  top-1/2
+  transform
+  -translate-y-1/2
+  cursor-pointer
+  text-primary-gray-400
+  z-20
+`;
+
+export const AlertIcon = tw(IoAlertCircleOutline)`
+  absolute
+  right-9
   top-1/2
   transform
   -translate-y-1/2

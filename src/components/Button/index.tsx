@@ -11,7 +11,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button = ({
   children,
   variant = 'primary',
-  loading = true,
+  loading = false,
   ...rest
 }: ButtonProps) => {
   return (
