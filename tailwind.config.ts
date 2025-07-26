@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   content: [
@@ -22,14 +23,14 @@ export default {
         },
 
         secondary: {
-          "purple-100": "#D6D6F6", 
-          "purple-200": "#B0B0F0", 
-          "purple-300": "#8989DE", 
-          "purple-400": "#6E6EC9", 
-          "purple-500": "#5454B4", 
-          "purple-600": "#3A3A8F", 
-          "purple-700": "#2A2A6A", 
-          "purple-800": "#19194D", 
+          "purple-100": "#D6D6F6",
+          "purple-200": "#B0B0F0",
+          "purple-300": "#8989DE",
+          "purple-400": "#6E6EC9",
+          "purple-500": "#5454B4",
+          "purple-600": "#3A3A8F",
+          "purple-700": "#2A2A6A",
+          "purple-800": "#19194D",
         },
       },
 
@@ -43,7 +44,7 @@ export default {
         "fade-in": "fade-in 0.5s ease-out",
         "slide-up": "slide-up 0.5s ease-out",
       },
-      
+
       keyframes: {
         "fade-in": {
           "0%": { opacity: "0" },
@@ -57,5 +58,5 @@ export default {
     },
   },
 
-  plugins: [],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;

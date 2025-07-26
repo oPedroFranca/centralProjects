@@ -1,4 +1,5 @@
 import tw from 'tailwind-styled-components';
+import { FaRegFolderOpen, FaRegFolder } from "react-icons/fa";
 
 export const ButtonNavSidebar = tw.button`
   w-full
@@ -12,6 +13,7 @@ export const ButtonNavSidebar = tw.button`
   transition-all
   duration-300
   backdrop-blur-sm
+  
   group
 
   ${({ selectedCategoryId, isMinimized, categoryId }) => `
@@ -36,4 +38,27 @@ export const HoverEffectDiv = tw.div`
   via-white/5
   to-transparent
   pointer-events-none
+`;
+
+export const CategoryName = tw.span`
+  font-medium
+  drop-shadow-sm
+  truncate
+`;
+
+export const FolderClosed = tw(FaRegFolder)`
+  h-4
+  w-4
+  group-hover:text-primary/70
+  transition-colors
+  duration-200
+  flex-shrink-0
+`;
+
+export const FolderOpen = tw(FaRegFolderOpen)`
+  h-4
+  w-4
+  text-primary
+  drop-shadow-sm
+  flex-shrink-0
 `;

@@ -25,14 +25,13 @@ export const MainLeftBarContent = () => {
       <S.List>
         {categories.map((categorie) => (
           <ButtonNavSidebar
+            categoryName={categorie.name}
             key={categorie.id}
             categoryId={String(categorie.id)}
             selectedCategoryId={selectedCategoryId}
             isMinimized={false}
             handleCategoryClick={handleCategoryClick}
-          >
-            {categorie.name}
-          </ButtonNavSidebar>
+          />
         ))}
       </S.List>
 

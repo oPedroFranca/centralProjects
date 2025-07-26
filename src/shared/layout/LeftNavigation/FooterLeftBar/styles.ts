@@ -1,19 +1,18 @@
-import tw from 'tailwind-styled-components';
+import tw from "tailwind-styled-components";
 
 export const Container = tw.div`
-  h-[40px]
-  border-primary-gray-500
-  flex
-  justify-center
-  items-center
   mt-auto
+  mb-3
+  pt-3
+  border-t
+  border-white/10
 `;
 
 export const TextWrapper = tw.div`
   text-xs
-  text-primary-gray-400
-  font-semibold
-  flex
+  text-muted-foreground/60
+  text-center
+  drop-shadow-sm
 `;
 
 export const Link = tw.a`

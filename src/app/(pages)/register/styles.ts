@@ -30,13 +30,12 @@ export const Title = tw.h1`
 `;
 
 export const Form = tw.div`
-  bg-primary-gray-800
   p-8
   rounded-xl
   text-white
   mb-auto
   w-full          
-  max-w-[450px]      
+  max-w-[450px]        
 `;
 
 
