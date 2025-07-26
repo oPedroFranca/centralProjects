@@ -1,15 +1,10 @@
-import { Header, LeftNavigation, MainContent } from '@/shared/layout';
+import LayoutStructure from '@/shared/layout/LayoutStructure';
 import * as S from './styles';
 
 export default function Home() {
   return (
     <S.Wrapper>
-      <LeftNavigation />
-
-      <S.MainArea>
-        <Header />
-        <MainContent />
-      </S.MainArea>
+      <LayoutStructure />
     </S.Wrapper>
   );
 }

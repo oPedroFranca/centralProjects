@@ -33,7 +33,7 @@ export const Button = tw.button<ButtonStyleProps>`
       hover:border-primary-gray-600
 
       font-medium
-      rounded-lg
+      rounded-md
       text-sm
       px-5
       py-2.5

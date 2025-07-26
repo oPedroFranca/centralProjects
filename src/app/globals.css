@@ -10,15 +10,24 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #161618;
-    --foreground: #ededed;
+    --background: #141413;
+    --foreground: #FAFAF8;
     --fontSize: 14px;
   }
 }
 
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    
+    background-image: 
+      radial-gradient(circle at 80% 80%, rgba(137, 137, 222, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 10% 10%, rgba(137, 137, 222, 0.05) 0%, transparent 50%);
+  }
+}
+
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+  font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   font-size: var(--fontSize);
 }

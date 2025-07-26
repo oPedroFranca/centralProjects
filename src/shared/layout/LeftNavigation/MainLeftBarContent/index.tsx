@@ -1,27 +1,22 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { mockCategories } from './mockCategories';
 import * as S from './styles';
+import { ButtonNavSidebar } from '@/components';
 
-interface categoriosType {
-  id: number
-  color: string
-  nameCategorie: string
-  isSelected: boolean
+interface CategoriosType {
+  id: number;
+  name: string;
 }
 
 export const MainLeftBarContent = () => {
-  const [categories, setCategories] = useState<categoriosType[]>([]);
+  const [categories,] = useState<CategoriosType[]>(mockCategories);
+  const [selectedCategoryId, setSelectedCategoryId] = useState<string>("");
 
-  const loadData = () => {
-    setCategories(mockCategories);
-    console.log(categories);
+  const handleCategoryClick = (id: string) => {
+    setSelectedCategoryId(id);
   };
-
-  useEffect(() => {
-    loadData();
-  }, [mockCategories]);
 
   return (
     <S.Container>
@@ -29,17 +24,18 @@ export const MainLeftBarContent = () => {
 
       <S.List>
         {categories.map((categorie) => (
-          <S.CategorieItem key={categorie.id} $isSelected={categorie.isSelected}>
-            <S.ColorWrapper style={{ backgroundColor: categorie.isSelected ? categorie.color : 'transparent' }}>
-              <S.ColorCircle style={{ backgroundColor: categorie.color }} />
-            </S.ColorWrapper>
-
-            <S.CategorieName $isSelected={categorie.isSelected}>
-              {categorie.nameCategorie}
-            </S.CategorieName>
-          </S.CategorieItem>
+          <ButtonNavSidebar
+            key={categorie.id}
+            categoryId={String(categorie.id)}
+            selectedCategoryId={selectedCategoryId}
+            isMinimized={false}
+            handleCategoryClick={handleCategoryClick}
+          >
+            {categorie.name}
+          </ButtonNavSidebar>
         ))}
       </S.List>
+
     </S.Container>
   );
 };

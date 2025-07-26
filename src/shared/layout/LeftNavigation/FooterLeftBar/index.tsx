@@ -1,19 +1,18 @@
-import * as S from './styles';
+// import * as S from './styles';
 
 const FooterLeftBar = () => {
   return (
-    <S.Container>
-      <S.TextWrapper>
-        <p>created by</p>
-        <S.Link 
-          href="https://www.linkedin.com/in/pedro-henrique-frança/" 
-          target="_blank" 
-          rel="noopener noreferrer"
-        >
-          Tesseract
-        </S.Link>
-      </S.TextWrapper>
-    </S.Container>
+    <div className="mt-3 pt-3 border-t border-white/10">
+      {/* {!isMinimized && (
+        <p className="text-xs text-muted-foreground/60 text-center drop-shadow-sm">
+          created by tesseract
+        </p>
+      )} */}
+
+      <p className="text-xs text-muted-foreground/60 text-center drop-shadow-sm">
+        created by tesseract
+      </p>
+    </div>
   );
 };
 

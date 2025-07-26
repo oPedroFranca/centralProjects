@@ -43,7 +43,7 @@ export const Input = tw.input<InputProps>`
 
   text-white
   bg-transparent
-  rounded-lg
+  rounded-md
   placeholder-primary-gray-400
   
   border

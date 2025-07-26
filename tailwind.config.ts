@@ -8,7 +8,7 @@ export default {
     "./src/layout/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/shared/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  
+
   theme: {
     extend: {
       colors: {
@@ -22,17 +22,40 @@ export default {
         },
 
         secondary: {
-          "purple-100": "#E0AAFF",
-          "purple-200": "#C77DFF",
-          "purple-300": "#9D4EDD",
-          "purple-400": "#7B2CBF",
-          "purple-500": "#5A189A",
-          "purple-600": "#3C096C",
-          "purple-700": "#240046",
-          "purple-800": "#10002B",
+          "purple-100": "#D6D6F6", 
+          "purple-200": "#B0B0F0", 
+          "purple-300": "#8989DE", 
+          "purple-400": "#6E6EC9", 
+          "purple-500": "#5454B4", 
+          "purple-600": "#3A3A8F", 
+          "purple-700": "#2A2A6A", 
+          "purple-800": "#19194D", 
+        },
+      },
+
+      borderRadius: {
+        lg: "1rem",
+        md: "0.75rem",
+        sm: "0.5rem",
+      },
+
+      animation: {
+        "fade-in": "fade-in 0.5s ease-out",
+        "slide-up": "slide-up 0.5s ease-out",
+      },
+      
+      keyframes: {
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        "slide-up": {
+          "0%": { transform: "translateY(10px)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
         },
       },
     },
   },
+
   plugins: [],
 } satisfies Config;
