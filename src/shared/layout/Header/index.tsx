@@ -1,8 +1,11 @@
 import { FiUser } from "react-icons/fi";
 import { CiCalendar } from "react-icons/ci";
+import { useSidebarStore } from '@/shared/zustand/isOpenNavSidebarStore';
 import * as S from './styles';
 
 const Header = () => {
+  const { isMinimizedSidebar } = useSidebarStore();
+
   const today = new Date().toLocaleDateString('pt-BR', {
     weekday: 'long',
     year: 'numeric',
@@ -11,7 +14,7 @@ const Header = () => {
   });
 
   return (
-    <S.Container>
+    <S.Container $isMinimizedSidebar={isMinimizedSidebar}>
       <S.HeaderWrapper>
         <div className="w-[100px]"></div>
 

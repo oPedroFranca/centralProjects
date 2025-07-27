@@ -5,6 +5,7 @@ import { mockCategories, mockCategoriesDefault } from './mockCategories';
 import { ButtonNavSidebar, Divider } from '@/components';
 import { FaPlus } from "react-icons/fa6";
 import { IoSettingsOutline } from "react-icons/io5";
+import { useSidebarStore } from '@/shared/zustand/isOpenNavSidebarStore';
 
 import * as S from './styles';
 
@@ -18,6 +19,7 @@ export const MainLeftBarContent = () => {
   const [categories] = useState<CategoriosType[]>(mockCategories);
   const [categoriesDefault] = useState<CategoriosType[]>(mockCategoriesDefault);
   const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(null);
+  const { isMinimizedSidebar } = useSidebarStore();
 
   const handleCategoryClick = (id: number) => {
     setSelectedCategoryId(id);
@@ -40,7 +42,9 @@ export const MainLeftBarContent = () => {
 
       <Divider />
 
-      <S.Title>Categories</S.Title>
+      {!isMinimizedSidebar && (
+        <S.Title>Categories</S.Title>
+      )}
 
       <S.List>
         {categories.map((category) => (

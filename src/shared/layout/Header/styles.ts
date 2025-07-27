@@ -1,7 +1,13 @@
 import tw from "tailwind-styled-components";
 
-export const Container = tw.div`
-  w-[calc(100%-250px)]
+interface MainAreaProps {
+  $isMinimizedSidebar: boolean;
+}
+
+export const Container = tw.div<MainAreaProps>`
+  ${(p) =>
+    p.$isMinimizedSidebar ? "w-[calc(100%-65px)]" : "w-[calc(100%-250px)]"}
+
   h-[60px]
   fixed
   p-2
@@ -9,6 +15,10 @@ export const Container = tw.div`
   border-b
   border-primary-gray-500
   backdrop-blur-xl
+
+  transition-all
+  duration-300
+  ease-in-out
 `;
 
 export const HeaderWrapper = tw.div`

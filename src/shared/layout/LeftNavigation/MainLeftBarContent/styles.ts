@@ -8,6 +8,7 @@ export const Container = tw.div`
   pb-4
   h-full
   overflow-auto
+  overflow-x-hidden
 `;
 
 export const Title = tw.p`

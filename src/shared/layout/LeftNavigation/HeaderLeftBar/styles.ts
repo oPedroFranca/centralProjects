@@ -29,14 +29,12 @@ export const Title = tw.h1`
 `;
 
 export const ButtonNavSidebar = tw(defaultButtonNavSidebar)`
-  w-[32px]
-  h-[32px]
+  ${(p) => (!p.isMinimized ? "w-[32px] h-[32px]" : "w-[40px] h-[40px]")}
   p-0
   justify-center
   border
   gap-0
-  
-  ${(props) => (props.isMinimized ? "bg-transparent" : "bg-white/5")}
+  bg-white/5
 `;
 
 export const LogoImage = tw(Image)`

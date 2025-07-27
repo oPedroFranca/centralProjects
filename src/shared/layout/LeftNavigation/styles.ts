@@ -1,9 +1,12 @@
 import tw from "tailwind-styled-components";
 
-export const Container = tw.div`
-  min-w-[250px]
-  pl-5
-  pr-5
+interface ContainerProps {
+  $isMinimized: boolean;
+}
+
+export const Container = tw.div<ContainerProps>`
+  ${(p) => (p.$isMinimized ? "w-[65px] pl-3 pr-3" : "w-[250px] pl-5 pr-5")}
+
   fixed
   left-0
   top-0
@@ -18,6 +21,4 @@ export const Container = tw.div`
   flex
   flex-col
   z-50
-
-  
 `;
