@@ -8,13 +8,14 @@ export const Wrapper = tw.div`
 
 export const MainArea = tw.div`
   w-[calc(100%-250px)]
-  ml-auto
 
+  ml-auto
   h-full
-  h-[calc(100%)]
 `;
 
 export const MainContent = tw.div`
+  mt-[60px]
+
   flex
   p-5
   items-center
