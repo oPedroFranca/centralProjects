@@ -5,67 +5,15 @@ import Image from 'next/image';
 
 import logo from '../../../../public/logoVersionTwo.png';
 import { Button, Input } from '@/components';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useForm } from 'react-hook-form';
-import { usePostRegister } from '@/shared/hooks';
-
 import { MdOutlineEmail } from "react-icons/md";
 import { FiUser } from "react-icons/fi";
 import { LuLock } from "react-icons/lu";
 
-import * as yup from 'yup';
+import { useRegisterForm } from './hook/useRegisterForm';
 import * as S from './styles';
 
-interface RegisterForm {
-  name: string;
-  username: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-}
-
-const registerSchema = yup.object({
-  name: yup
-    .string()
-    .required('Required field'),
-  username: yup
-    .string()
-    .required('Required field'),
-  email: yup
-    .string()
-    .required('Required field')
-    .email('E-mail invalid'),
-  password: yup
-    .string()
-    .required('Required field')
-    .min(6, 'Password must be at least 6 characters'),
-  confirmPassword: yup
-    .string()
-    .oneOf([yup.ref('password')], 'Passwords must match')
-    .required('Required field'),
-});
-
 export default function Register() {
-  const { registerUser } = usePostRegister()
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<RegisterForm>({
-    resolver: yupResolver(registerSchema),
-  });
-
-  const onSubmit = async (data: RegisterForm) => {
-    const formatRegisterPost = {
-      name: data.name,
-      userName: data.username,
-      email: data.email,
-      password: data.password,
-    };
-
-    await registerUser(formatRegisterPost)
-  };
+  const { register, handleSubmit, errors } = useRegisterForm();
 
   return (
     <S.Container>
@@ -81,7 +29,7 @@ export default function Register() {
         <S.Title>Tesseract</S.Title>
       </S.LogoContainer>
 
-      <S.Form onSubmit={handleSubmit(onSubmit)}>
+      <S.Form onSubmit={handleSubmit}>
         <div className="flex flex-col gap-4 ">
           <div className="flex gap-2.5 justify-between">
             <Input
@@ -125,7 +73,7 @@ export default function Register() {
             leftIcon={<LuLock size={16} />}
           />
 
-          <Button type="submit" onClick={handleSubmit(onSubmit)} >Register</Button>
+          <Button type="submit" onClick={handleSubmit} >Register</Button>
         </div>
 
 
@@ -143,9 +91,9 @@ export default function Register() {
           </S.Divider>
 
           <S.SocialButtons>
-            <Button variant="secondary"> <FaGoogle /> </Button>
-            <Button variant="secondary"> <FaLinkedin /> </Button>
-            <Button variant="secondary"> <FaGithub /> </Button>
+            <Button variant="secondary"><FaGoogle /></Button>
+            <Button variant="secondary"><FaLinkedin /></Button>
+            <Button variant="secondary"><FaGithub /></Button>
           </S.SocialButtons>
         </S.Options>
       </S.Form>

@@ -1,1 +1,1 @@
-export { usePostRegister } from "./api/usePostRegister";
+export { usePostRegister } from "../../app/(pages)/register/hook/usePostRegister";

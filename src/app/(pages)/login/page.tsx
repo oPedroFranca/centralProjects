@@ -1,53 +1,18 @@
-'use client';
+"use client"
 
 import { FaGoogle, FaGithub, FaLinkedin } from 'react-icons/fa';
 import Image from 'next/image';
 
 import logo from '../../../../public/logoVersionTwo.png';
 import { Button, Input } from '@/components';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useForm } from 'react-hook-form';
 import { MdOutlineEmail } from "react-icons/md";
 import { LuLock } from "react-icons/lu";
-import { usePostLogin } from '@/shared/hooks/api/usePostLogin';
 
 import * as S from './styles';
-import * as yup from 'yup';
-
-interface LoginForm {
-  email: string;
-  password: string;
-}
-
-const loginSchema = yup.object({
-  email: yup
-    .string()
-    .required('Required field')
-    .email('E-mail invalid'),
-  password: yup
-    .string()
-    .required('Required field')
-});
+import { useLoginForm } from './hook/useLoginForm';
 
 export default function Login() {
-  const { loginUser } = usePostLogin();
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<{ email: string; password: string }>({
-    resolver: yupResolver(loginSchema),
-  });
-
-  const onSubmit = async (data: LoginForm) => {
-    const formatDataLogin = {
-      email: data.email,
-      password: data.password
-    }
-
-    await loginUser(formatDataLogin)
-  };
+  const { register, handleSubmit, errors } = useLoginForm();
 
   return (
     <S.Container>
@@ -63,7 +28,7 @@ export default function Login() {
         <S.Title>Tesseract</S.Title>
       </S.LogoContainer>
 
-      <S.Form onSubmit={handleSubmit(onSubmit)}>
+      <S.Form onSubmit={handleSubmit}>
         <div className="flex flex-col gap-4">
           <Input
             type="email"
@@ -81,7 +46,7 @@ export default function Login() {
             leftIcon={<LuLock size={16} />}
           />
 
-          <Button type="submit" onClick={handleSubmit(onSubmit)}>
+          <Button type="submit" onClick={handleSubmit}>
             Entrar
           </Button>
         </div>
@@ -103,10 +68,10 @@ export default function Login() {
               <FaGoogle />
             </Button>
             <Button variant="secondary">
-              <FaLinkedin />{" "}
+              <FaLinkedin />
             </Button>
             <Button variant="secondary">
-              <FaGithub />{" "}
+              <FaGithub />
             </Button>
           </S.SocialButtons>
         </S.Options>

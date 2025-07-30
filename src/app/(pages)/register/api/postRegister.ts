@@ -1,6 +1,8 @@
+'use client';
+
 import { AxiosResponse } from "axios";
-import { tesseractApi } from "../../client";
 import { IRegisterPost } from '@/shared/interfaces';
+import { tesseractApi } from '@/shared/api/client';
 
 export const postRegister = async (
   postData: IRegisterPost

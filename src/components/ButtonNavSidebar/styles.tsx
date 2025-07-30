@@ -2,7 +2,7 @@ import tw from 'tailwind-styled-components';
 import { FaRegFolderOpen, FaRegFolder } from "react-icons/fa";
 
 interface ButtonNavSidebarProps {
-  isSelected: boolean;
+  $isSelected: boolean;
   isMinimized: boolean;
 }
 
@@ -20,8 +20,8 @@ export const ButtonNavSidebar = tw.button<ButtonNavSidebarProps>`
   
   group
 
-  ${({ isSelected, isMinimized }) => `
-    ${isSelected
+  ${({ $isSelected, isMinimized }) => `
+    ${$isSelected
       ? 'bg-secondary-purple-300/20 border border-secondary-purple-300/30 text-foreground shadow-lg shadow-secondary-purple-300/10'
       : 'bg-white/5 border border-transparent hover:bg-white/10 hover:border-white/20 text-muted-foreground hover:text-foreground'
     }

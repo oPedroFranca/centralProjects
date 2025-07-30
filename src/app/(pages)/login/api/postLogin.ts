@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios";
-import { tesseractApi } from "../../client";
 import { ILoginPost } from '@/shared/interfaces';
+import { tesseractApi } from '@/shared/api/client';
 
 export const postLogin = async (
   postData: ILoginPost

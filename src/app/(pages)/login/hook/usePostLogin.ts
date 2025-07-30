@@ -1,7 +1,9 @@
-import { postLogin } from "@/shared/api";
+'use client';
+
 import { ILoginPost } from "@/shared/interfaces";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { postLogin } from '../api/postLogin';
 
 export const usePostLogin = () => {
   const [loading, setLoading] = useState<boolean>(false);

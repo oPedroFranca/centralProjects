@@ -6,7 +6,7 @@ interface SidebarStore {
 }
 
 export const useSidebarStore = create<SidebarStore>((set) => ({
-  isMinimizedSidebar: true,
+  isMinimizedSidebar: false,
   toggleSidebar: () =>
     set((state) => ({
       isMinimizedSidebar: !state.isMinimizedSidebar,

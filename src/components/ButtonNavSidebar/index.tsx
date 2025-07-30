@@ -3,7 +3,7 @@ import * as S from './styles';
 
 interface ButtonNavSidebarProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   Text?: string;
-  isSelected?: boolean;
+  $isSelected?: boolean;
   isMinimized: boolean;
   handleCategoryClick: () => void;
   icon?: ReactNode;
@@ -11,7 +11,7 @@ interface ButtonNavSidebarProps extends React.ButtonHTMLAttributes<HTMLButtonEle
 
 export const ButtonNavSidebar = ({
   Text,
-  isSelected = false,
+  $isSelected = false,
   isMinimized,
   handleCategoryClick,
   icon,
@@ -19,18 +19,18 @@ export const ButtonNavSidebar = ({
 }: ButtonNavSidebarProps) => {
   return (
     <S.ButtonNavSidebar
-      isSelected={isSelected}
-      isMinimized={isMinimized}
+      $isSelected={$isSelected}
+      $isMinimized={isMinimized}
       onClick={handleCategoryClick}
       title={isMinimized ? Text : undefined}
       {...rest}
     >
       {icon ? (
         <span>{icon}</span>
-      ) : isSelected ? (
-        <S.FolderOpen />
+      ) : $isSelected ? (
+        <S.FolderOpen data-testid="FolderOpen" />
       ) : (
-        <S.FolderClosed />
+        <S.FolderClosed data-testid="FolderClosed" />
       )}
 
       {!isMinimized && <S.CategoryName>{Text}</S.CategoryName>}

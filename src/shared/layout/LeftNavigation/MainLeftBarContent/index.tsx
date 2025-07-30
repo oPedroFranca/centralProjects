@@ -32,7 +32,7 @@ export const MainLeftBarContent = () => {
           <ButtonNavSidebar
             key={category.id}
             Text={category.name}
-            isSelected={selectedCategoryId === category.id}
+            $isSelected={selectedCategoryId === category.id}
             isMinimized={false}
             handleCategoryClick={() => handleCategoryClick(category.id)}
             icon={category.icon}
@@ -51,7 +51,7 @@ export const MainLeftBarContent = () => {
           <ButtonNavSidebar
             key={category.id}
             Text={category.name}
-            isSelected={selectedCategoryId === category.id}
+            $isSelected={selectedCategoryId === category.id}
             isMinimized={false}
             handleCategoryClick={() => handleCategoryClick(category.id)}
           />

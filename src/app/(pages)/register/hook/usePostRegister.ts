@@ -1,7 +1,9 @@
-import { postRegister } from "@/shared/api";
+'use client';
+
 import { IRegisterPost } from "@/shared/interfaces";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { postRegister } from '../api/postRegister';
 
 export const usePostRegister = () => {
   const [loading, setLoading] = useState<boolean>(false);
