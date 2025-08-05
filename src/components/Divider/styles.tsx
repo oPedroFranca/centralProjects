@@ -11,4 +11,5 @@ export const Divider = tw.div<DividerProps>`
   ${({ thickness }) => thickness}
   mb-4
   mt-4
+  data-testid="divider"
 `;

@@ -34,7 +34,7 @@ export const Input: React.FC<InputProps> = ({
   return (
     <S.Container>
       <S.InputWrapper>
-        {leftIcon && <S.LeftIcon>{leftIcon}</S.LeftIcon>}
+        {leftIcon && <S.LeftIcon data-testid={`left-icon-${placeholder}`}>{leftIcon}</S.LeftIcon>}
 
         <S.Input
           type={inputType}
@@ -47,13 +47,14 @@ export const Input: React.FC<InputProps> = ({
         />
 
         {isPassword && (
-          <S.EyeIcon onClick={togglePasswordVisibility}>
+          <S.EyeIcon onClick={togglePasswordVisibility} data-testid="eye-icon">
             {showPassword ? <FiEyeOff size={16} /> : <FiEye size={16} />}
           </S.EyeIcon>
         )}
 
         {error &&
           <S.AlertIcon
+            data-testid={`alert-icon-${placeholder}`}
             className={isPassword ? 'right-9' : 'right-3'}
           />
         }

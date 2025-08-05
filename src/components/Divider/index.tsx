@@ -15,6 +15,7 @@ export const Divider = ({
     <S.Divider
       color={color}
       thickness={thickness}
+      data-testid="divider"
       {...rest}
     />
   );
