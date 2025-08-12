@@ -1,10 +1,5 @@
 import tw from 'tailwind-styled-components';
 
-export const Wrapper = tw.div`
-  flex
-  h-screen
-  w-screen
-`;
 
 export const MainArea = tw.div`
   w-full
