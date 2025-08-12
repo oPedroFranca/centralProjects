@@ -1,14 +1,28 @@
-import tw from 'tailwind-styled-components';
+import tw from "tailwind-styled-components";
 
+export const Button = tw.button`
+  flex
+  gap-2
+  px-3
+  py-1.5
+  
+  m-auto
 
-export const MainArea = tw.div`
-  w-full
-  h-full
-  m-2
-  ml-0
+  bg-purple-500/20
+  hover:bg-purple-500/30
+
+  text-purple-200
+  hover:text-purple-100
+ 
+  border-purple-400/30
+  hover:border-purple-400/50
+  rounded-md
+
+  shadow-lg
+  hover:shadow-xl
+  backdrop-blur-sm
   border
-  border-primary-gray-500
-  rounded-2xl
-  h-[calc(100%-18px)]
-
+  
+  transition-all
+  duration-300
 `;
