@@ -6,11 +6,11 @@ export const Wrapper = tw.div`
   w-screen
 `;
 
-interface MainAreaProps {
+interface IMainAreaProps {
   $isMinimizedSidebar: boolean;
 }
 
-export const MainArea = tw.div<MainAreaProps>`
+export const MainArea = tw.div<IMainAreaProps>`
   ${(p) =>
     p.$isMinimizedSidebar ? "w-[calc(100%-65px)]" : "w-[calc(100%-250px)]"}
   ml-auto
@@ -22,6 +22,11 @@ export const MainArea = tw.div<MainAreaProps>`
 `;
 
 export const MainContent = tw.div`
+  flex
+  flex-col
+
+  gap-4
+
   mt-[60px]
 
   p-5

@@ -1,16 +1,16 @@
 import tw from 'tailwind-styled-components';
 
-interface ButtonStyleProps {
+interface IButtonStyleProps {
   $variant?: 'primary' | 'secondary';
 }
 
-export const Button = tw.button<ButtonStyleProps>`
+export const Button = tw.button<IButtonStyleProps>`
   flex
   items-center
   justify-center
 
   transition
-  duration-200
+  duration-300
   ease-in-out
 
   w-full
@@ -67,5 +67,36 @@ export const Button = tw.button<ButtonStyleProps>`
       dark:hover:bg-primary-gray-500
       dark:hover:border-primary-gray-300
       dark:text-white
+    `}
+
+    ${(p) =>
+    p.$variant === 'gradient' &&
+    `
+      gap-2
+      px-3
+      py-1.5
+
+      bg-gradient-to-r
+      from-purple-500/20
+      to-purple-600/5
+      
+      hover:bg-gradient-to-r
+      hover:from-purple-600/20
+      hover:to-purple-700/10
+      text-purple-200
+      hover:text-purple-100
+
+      border-purple-400/30
+      hover:border-purple-400/50
+      rounded-md
+
+      shadow-lg
+      hover:shadow-xl
+      border
+
+      transition-all
+      duration-300
+
+      font-medium
     `}
 `;

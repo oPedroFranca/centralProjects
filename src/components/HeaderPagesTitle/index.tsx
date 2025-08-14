@@ -1,8 +1,7 @@
 import React from 'react';
-import { LuSparkles } from "react-icons/lu";
 import { Container, ContentWrapper, Title, Icon, Description } from './styles';
 
-interface HeaderPagesTitleProps {
+interface IHeaderPagesTitleProps {
   title: string;
   description: string;
   descriptionColor?: string;
@@ -13,7 +12,7 @@ export const HeaderPagesTitle = ({
   title,
   description,
   buttons,
-}: HeaderPagesTitleProps) => {
+}: IHeaderPagesTitleProps) => {
   return (
     <Container>
       <ContentWrapper>

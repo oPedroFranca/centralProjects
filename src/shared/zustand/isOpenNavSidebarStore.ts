@@ -1,11 +1,11 @@
 import { create } from 'zustand';
 
-interface SidebarStore {
+interface ISidebarStore {
   isMinimizedSidebar: boolean;
   toggleSidebar: () => void;
 }
 
-export const useSidebarStore = create<SidebarStore>((set) => ({
+export const useSidebarStore = create<ISidebarStore>((set) => ({
   isMinimizedSidebar: false,
   toggleSidebar: () =>
     set((state) => ({

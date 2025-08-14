@@ -9,15 +9,15 @@ import { useSidebarStore } from '@/shared/zustand/isOpenNavSidebarStore';
 
 import * as S from './styles';
 
-interface CategoriosType {
+interface ICategoriosType {
   id: number;
   name: string;
   icon?: React.ReactNode;
 }
 
 export const MainLeftBarContent = () => {
-  const [categories] = useState<CategoriosType[]>(mockCategories);
-  const [categoriesDefault] = useState<CategoriosType[]>(mockCategoriesDefault);
+  const [categories] = useState<ICategoriosType[]>(mockCategories);
+  const [categoriesDefault] = useState<ICategoriosType[]>(mockCategoriesDefault);
   const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(null);
   const { isMinimizedSidebar } = useSidebarStore();
 

@@ -2,9 +2,9 @@ import React from 'react';
 import * as S from './styles';
 import { SpinLoading } from '../SpinLoading';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'gradient';
   loading?: boolean;
 }
 
@@ -13,7 +13,7 @@ export const Button = ({
   variant = 'primary',
   loading = false,
   ...rest
-}: ButtonProps) => {
+}: IButtonProps) => {
   return (
     <S.Button $variant={variant} disabled={loading || rest.disabled} {...rest}>
       {loading ? (

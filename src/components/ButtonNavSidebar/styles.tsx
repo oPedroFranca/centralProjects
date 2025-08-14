@@ -1,12 +1,12 @@
 import tw from 'tailwind-styled-components';
 import { FaRegFolderOpen, FaRegFolder } from "react-icons/fa";
 
-interface ButtonNavSidebarProps {
+interface IButtonNavSidebarProps {
   $isSelected: boolean;
   isMinimized: boolean;
 }
 
-export const ButtonNavSidebar = tw.button<ButtonNavSidebarProps>`
+export const ButtonNavSidebar = tw.button<IButtonNavSidebarProps>`
   flex
   items-center
   gap-3

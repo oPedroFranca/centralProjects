@@ -1,10 +1,10 @@
 import tw from "tailwind-styled-components";
 
-interface ContainerProps {
+interface IContainerProps {
   $isMinimized: boolean;
 }
 
-export const Container = tw.div<ContainerProps>`
+export const Container = tw.div<IContainerProps>`
   ${(p) => (p.$isMinimized ? "w-[65px] pl-3 pr-3" : "w-[250px] pl-5 pr-5")}
 
   fixed

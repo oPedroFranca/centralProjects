@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from 'react-hook-form';
 import * as yup from "yup";
 
-interface LoginForm {
+interface ILoginForm {
   email: string;
   password: string;
 }
@@ -22,11 +22,11 @@ export function useLoginForm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginForm>({
+  } = useForm<ILoginForm>({
     resolver: yupResolver(loginSchema),
   });
 
-  const onSubmit = async (data: LoginForm) => {
+  const onSubmit = async (data: ILoginForm) => {
     const formatDataLogin = {
       email: data.email,
       password: data.password,

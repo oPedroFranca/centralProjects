@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import * as S from './styles';
 
-interface ButtonNavSidebarProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface IButtonNavSidebarProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   Text?: string;
   $isSelected?: boolean;
   isMinimized: boolean;
@@ -16,7 +16,7 @@ export const ButtonNavSidebar = ({
   handleCategoryClick,
   icon,
   ...rest
-}: ButtonNavSidebarProps) => {
+}: IButtonNavSidebarProps) => {
   return (
     <S.ButtonNavSidebar
       $isSelected={$isSelected}

@@ -1,11 +1,11 @@
 import tw from 'tailwind-styled-components';
 
-interface DividerProps {
+interface IDividerProps {
   color: string;
   thickness: string;
 }
 
-export const Divider = tw.div<DividerProps>`
+export const Divider = tw.div<IDividerProps>`
   w-full
   ${({ color }) => `bg-${color}`}
   ${({ thickness }) => thickness}

@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
-interface RegisterForm {
+interface IRegisterForm {
   name: string;
   username: string;
   email: string;
@@ -32,11 +32,11 @@ export function useRegisterForm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<RegisterForm>({
+  } = useForm<IRegisterForm>({
     resolver: yupResolver(registerSchema),
   });
 
-  const onSubmit = async (data: RegisterForm) => {
+  const onSubmit = async (data: IRegisterForm) => {
     const formatRegisterPost = {
       name: data.name,
       userName: data.username,
