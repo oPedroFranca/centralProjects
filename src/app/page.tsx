@@ -19,13 +19,7 @@ export default function Home() {
       />
 
       <Container>
-        <div className="grid grid-cols-[repeat(auto-fit,_minmax(230px,_1fr))] gap-3">
-          <ProjectCard project={mockCardProject[0]} onProjectClick={() => { }} />
-          <ProjectCard project={mockCardProject[0]} onProjectClick={() => { }} />
-          <ProjectCard project={mockCardProject[0]} onProjectClick={() => { }} />
-          <ProjectCard project={mockCardProject[0]} onProjectClick={() => { }} />
-          <ProjectCard project={mockCardProject[0]} onProjectClick={() => { }} />
-          <ProjectCard project={mockCardProject[0]} onProjectClick={() => { }} />
+        <div className="grid grid-cols-[repeat(auto-fill,_minmax(230px,_1fr))] gap-3 justify-items-start">
           <ProjectCard project={mockCardProject[0]} onProjectClick={() => { }} />
           <ProjectCard project={mockCardProject[0]} onProjectClick={() => { }} />
           <ProjectCard project={mockCardProject[0]} onProjectClick={() => { }} />

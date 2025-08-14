@@ -20,8 +20,6 @@ export const ProjectCard = ({ project, onProjectClick }: ProjectCardProps) => {
       <CardHeader project={project} />
 
       <CardContent project={project} />
-
-      <CardFooter status='Ativo'/>
     </S.CardContainer>
   );
 };

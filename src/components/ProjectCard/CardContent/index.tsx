@@ -2,6 +2,7 @@ import { Button } from '@/components';
 import * as S from './styles';
 import { FiGithub } from "react-icons/fi";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
+import CardFooter from '../CardFooter';
 
 interface CardContentProps {
   project: any;
@@ -27,6 +28,8 @@ const CardContent = ({ project }: CardContentProps) => {
           </Button>
         )}
       </S.ActionButtons>
+
+      <CardFooter status='Ativo'/>
     </S.CardContent>
   );
 };

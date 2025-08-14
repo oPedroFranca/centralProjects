@@ -8,15 +8,16 @@ export const CardContent = tw.div`
 `;
 
 export const ProjectDescription = tw.p`
-  text-muted-foreground/80
+  text-primary-gray-200
+  text-xs
+
   mb-3
   line-clamp-3
   leading-relaxed
-  group-hover:text-muted-foreground
+  group-hover:text-white
 
   transition-colors
   duration-300
-  text-xs
 `;
 
 export const ActionButtons = tw.div`
