@@ -2,10 +2,11 @@
 
 import { useState } from 'react';
 import { mockCategories, mockCategoriesDefault } from './mockCategories';
-import { ButtonNavSidebar, Divider, Modal } from '@/components';
+import { ButtonNavSidebar, Divider } from '@/components';
 import { FaPlus } from "react-icons/fa6";
 import { IoSettingsOutline } from "react-icons/io5";
 import { useSidebarStore } from '@/shared/zustand/isOpenNavSidebarStore';
+import ModalCreateCategory from '../Modal';
 
 import * as S from './styles';
 
@@ -15,15 +16,13 @@ interface ICategoriosType {
   icon?: React.ReactNode;
 }
 
-interface MainLeftBarContentProps {
-  onOpenModal?: () => void;
-}
-
-export const MainLeftBarContent = ({ onOpenModal }: MainLeftBarContentProps) => {
+export const MainLeftBarContent = () => {
   const [categories] = useState<ICategoriosType[]>(mockCategories);
   const [categoriesDefault] = useState<ICategoriosType[]>(mockCategoriesDefault);
   const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(null);
   const { isMinimizedSidebar } = useSidebarStore();
+
+  const [isModalOpenCategory, setIsModalOpenCategory] = useState(false);
 
   const handleCategoryClick = (id: number) => {
     setSelectedCategoryId(id);
@@ -46,9 +45,7 @@ export const MainLeftBarContent = ({ onOpenModal }: MainLeftBarContentProps) => 
 
       <Divider />
 
-      {!isMinimizedSidebar && (
-        <S.Title>Categories</S.Title>
-      )}
+      {!isMinimizedSidebar && <S.Title>Categories</S.Title>}
 
       <S.List>
         {categories.map((category) => (
@@ -65,7 +62,7 @@ export const MainLeftBarContent = ({ onOpenModal }: MainLeftBarContentProps) => 
           Text={"New Category"}
           isMinimized={false}
           handleCategoryClick={() => { }}
-          onClick={onOpenModal}
+          onClick={() => setIsModalOpenCategory(true)}
           icon={<FaPlus />}
         />
       </S.List>
@@ -75,6 +72,11 @@ export const MainLeftBarContent = ({ onOpenModal }: MainLeftBarContentProps) => 
         isMinimized={false}
         handleCategoryClick={() => { }}
         icon={<IoSettingsOutline size={16} />}
+      />
+
+      <ModalCreateCategory
+        isOpen={isModalOpenCategory}
+        onClose={() => setIsModalOpenCategory(false)}
       />
     </S.Container>
   );
