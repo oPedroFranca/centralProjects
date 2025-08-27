@@ -6,14 +6,18 @@ import HeaderLeftBar from './HeaderLeftBar';
 import { MainLeftBarContent } from './MainLeftBarContent';
 import * as S from './styles';
 
-const LeftNavigation = () => {
+interface LeftNavigationProps {
+  onOpenModal?: () => void;
+}
+
+const LeftNavigation = ({ onOpenModal }: LeftNavigationProps) => {
   const { isMinimizedSidebar } = useSidebarStore();
 
   return (
     <S.Container  $isMinimized={isMinimizedSidebar}>
       <HeaderLeftBar />
 
-      <MainLeftBarContent />
+      <MainLeftBarContent onOpenModal={onOpenModal} />
 
       <FooterLeftBar />
     </S.Container>

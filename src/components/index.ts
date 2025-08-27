@@ -13,3 +13,5 @@ export { HeaderPagesTitle } from "./HeaderPagesTitle";
 export { Input } from "./Input";
 
 export { SpinLoading } from "./SpinLoading";
+
+export { Modal } from "./Modal";

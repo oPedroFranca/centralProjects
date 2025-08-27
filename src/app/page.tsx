@@ -13,7 +13,7 @@ export default function Home() {
         buttons={
           <Button variant="gradient" className="h-fit m-auto">
             <BiPlus className="h-4 w-4 m-auto" />
-            Novo Projeto
+            New Project
           </Button>
         }
       />

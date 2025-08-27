@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { mockCategories, mockCategoriesDefault } from './mockCategories';
-import { ButtonNavSidebar, Divider } from '@/components';
+import { ButtonNavSidebar, Divider, Modal } from '@/components';
 import { FaPlus } from "react-icons/fa6";
 import { IoSettingsOutline } from "react-icons/io5";
 import { useSidebarStore } from '@/shared/zustand/isOpenNavSidebarStore';
@@ -15,7 +15,11 @@ interface ICategoriosType {
   icon?: React.ReactNode;
 }
 
-export const MainLeftBarContent = () => {
+interface MainLeftBarContentProps {
+  onOpenModal?: () => void;
+}
+
+export const MainLeftBarContent = ({ onOpenModal }: MainLeftBarContentProps) => {
   const [categories] = useState<ICategoriosType[]>(mockCategories);
   const [categoriesDefault] = useState<ICategoriosType[]>(mockCategoriesDefault);
   const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(null);
@@ -61,6 +65,7 @@ export const MainLeftBarContent = () => {
           Text={"New Category"}
           isMinimized={false}
           handleCategoryClick={() => { }}
+          onClick={onOpenModal}
           icon={<FaPlus />}
         />
       </S.List>

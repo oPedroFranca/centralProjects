@@ -24,13 +24,9 @@ export const MainArea = tw.div<IMainAreaProps>`
 export const MainContent = tw.div`
   flex
   flex-col
-
   gap-4
-
   mt-[60px]
-
   p-5
-  
   h-[calc(100%-60px)]
   bg-[#141413]
 `;
