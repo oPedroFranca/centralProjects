@@ -5,7 +5,7 @@ export const Backdrop = tw.div`
   inset-0
   z-[1000]
 
-  bg-primary-gray-800/40
+  bg-primary-gray-800/60
 
   flex
   items-center
@@ -14,21 +14,20 @@ export const Backdrop = tw.div`
 
 export const Dialog = tw.div`
   relative
-  w-full
-  max-w-lg
-  p-6
+  w-auto
+  max-w-[800px]
+  min-w-[320px]
+  max-h-[95vh]
+  p-5
 
-  rounded-lg
+  rounded-md
 
-  bg-primary-gray-700
-  dark:bg-primary-gray-800
+  bg-primary-gray-800/60
+  backdrop-blur-xl
 
   shadow-2xl
 
-  ring-1
+  ring-2
   ring-primary-gray-500/40
   dark:ring-primary-gray-400/30
-
-  transition
-  data-[state=open]:animate-[modal-in_160ms_ease-out]
 `;

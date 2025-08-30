@@ -10,7 +10,7 @@ type Props = {
 export function ModalHeader({ title, onClose }: Props) {
   return (
     <S.Header>
-      <S.Title >{title}</S.Title>
+      <S.Title ></S.Title>
       <S.CloseX onClick={onClose} aria-label="Close">
         <IoClose size={20} />
       </S.CloseX>

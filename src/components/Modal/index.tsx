@@ -34,18 +34,18 @@ export const Modal = ({
   if (!isOpen) return null;
   return createPortal(
     <S.Backdrop onMouseDown={(e: React.MouseEvent<HTMLDivElement>) => { if (e.target === e.currentTarget) onClose(); }}>
-      <S.Dialog {...dialogRef} data-open={isOpen}>
+      <S.Dialog {...dialogRef}>
         <ModalHeader title={title} onClose={onClose} />
 
         {children}
 
         {!hideFooter && (
           <ModalFooter
+            loading={loading}
             cancelText={cancelText}
             okText={okText}
             onCancel={onClose}
             onOk={onSubmit}
-            loading={loading}
           />
         )}
       </S.Dialog>

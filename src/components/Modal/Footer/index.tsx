@@ -1,6 +1,5 @@
 "use client";
 import * as S from "./styles";
-import { Button } from "../../Button";
 
 type Props = {
   cancelText?: string;
@@ -19,10 +18,8 @@ export function ModalFooter({
 }: Props) {
   return (
     <S.Footer>
-      <Button onClick={onCancel}>{cancelText}</Button>
-      <Button onClick={onOk} disabled={loading}>
-        {loading ? "Loading..." : okText}
-      </Button>
+      <S.ButtonCancel onClick={onCancel}>{cancelText}</S.ButtonCancel>
+      <S.ButtonConfirm variant='gradient' onClick={onOk} loading={loading}>{okText}</S.ButtonConfirm>
     </S.Footer>
   );
 }

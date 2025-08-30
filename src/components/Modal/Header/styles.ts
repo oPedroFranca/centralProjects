@@ -6,14 +6,12 @@ export const Header = tw.div`
   items-center
   justify-between
   gap-3
-  mb-6
 `;
 
 export const Title = tw.h3`
   text-base
   font-semibold
-  text-neutral-900 
-  dark:text-neutral-100
+  text-primary-gray-600
 `;
 
 export const CloseX = tw.button`
@@ -22,7 +20,6 @@ export const CloseX = tw.button`
   justify-center
   
   transition-colors
-  hover:text-neutral-800
-  dark:text-neutral-400
-  dark:hover:text-neutral-200
+  text-primary-gray-300
+  hover:text-primary-gray-200
 `;
