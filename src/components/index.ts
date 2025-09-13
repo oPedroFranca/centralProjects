@@ -15,3 +15,5 @@ export { Input } from "./Input";
 export { SpinLoading } from "./SpinLoading";
 
 export { Modal } from "./Modal";
+
+export { CounterCharacter } from "./CounterCharacter";

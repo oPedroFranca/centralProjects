@@ -20,9 +20,9 @@ export const MainLeftBarContent = () => {
   const [categories] = useState<ICategoriosType[]>(mockCategories);
   const [categoriesDefault] = useState<ICategoriosType[]>(mockCategoriesDefault);
   const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(null);
-  const { isMinimizedSidebar } = useSidebarStore();
-
   const [isModalOpenCategory, setIsModalOpenCategory] = useState(false);
+
+  const { isMinimizedSidebar } = useSidebarStore();
 
   const handleCategoryClick = (id: number) => {
     setSelectedCategoryId(id);
@@ -61,7 +61,7 @@ export const MainLeftBarContent = () => {
         <S.NewCategoryButton
           Text={"New Category"}
           isMinimized={false}
-          handleCategoryClick={() => { }}
+          handleCategoryClick={() => {}}
           onClick={() => setIsModalOpenCategory(true)}
           icon={<FaPlus />}
         />
@@ -70,7 +70,7 @@ export const MainLeftBarContent = () => {
       <S.ConfigButton
         Text={"Configurations"}
         isMinimized={false}
-        handleCategoryClick={() => { }}
+        handleCategoryClick={() => {}}
         icon={<IoSettingsOutline size={16} />}
       />
 

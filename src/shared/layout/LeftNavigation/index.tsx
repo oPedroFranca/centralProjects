@@ -1,11 +1,11 @@
 "use client";
 
 import { useSidebarStore } from '@/shared/zustand/isOpenNavSidebarStore';
-import FooterLeftBar from './FooterLeftBar';
-import HeaderLeftBar from './HeaderLeftBar';
-import { MainLeftBarContent } from './MainLeftBarContent';
-import * as S from './styles';
+import HeaderLeftBar from './components/HeaderLeftBar';
+import { MainLeftBarContent } from './components/MainLeftBarContent';
+import FooterLeftBar from './components/FooterLeftBar';
 
+import * as S from './styles';
 
 const LeftNavigation = () => {
   const { isMinimizedSidebar } = useSidebarStore();

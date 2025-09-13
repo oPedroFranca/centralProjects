@@ -1,6 +1,6 @@
 "use client";
 
-import logo from '../../../../../public/logo.png';
+import logo from '../../../../../../public/logo.png';
 import { LuMinimize2 } from "react-icons/lu";
 import { useSidebarStore } from '@/shared/zustand/isOpenNavSidebarStore';
 import { CgArrowsExpandRight } from "react-icons/cg";

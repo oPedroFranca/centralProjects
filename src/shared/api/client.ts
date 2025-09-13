@@ -1,8 +1,8 @@
-import axios from "axios";
+import { createApiInstance } from './createApiInstance/createApiInstance';
 
 const API_AUTH_URL = process.env.NEXT_PUBLIC_API_AUTH_URL;
 
-export const tesseractApi = axios.create({
+export const tesseractApi = createApiInstance({
   baseURL: API_AUTH_URL,
   headers: {
     Accept: "application/json",
