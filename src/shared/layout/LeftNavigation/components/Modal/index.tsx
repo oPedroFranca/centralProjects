@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CounterCharacter, Modal } from "@/components";
+import { CounterCharacter, Input, Modal } from "@/components";
 import * as S from "./styles";
 import { useCreateCategory } from '../../hooks/useCreateCategory';
 
@@ -51,7 +51,7 @@ const ModalCreateCategory = ({ isOpen, onClose }: ModalCreateCategoryProps) => {
         <div>
           <S.Field>
             <S.Label>Category Name</S.Label>
-            <S.Input
+            <Input
               placeholder="Enter the category name..."
               value={categoryName}
               onChange={(e) => setCategoryName(e.target.value)}
@@ -62,7 +62,7 @@ const ModalCreateCategory = ({ isOpen, onClose }: ModalCreateCategoryProps) => {
 
           <S.Field>
             <S.Label>Description</S.Label>
-            <S.Input
+            <Input
               placeholder="Category description..."
               value={description}
               onChange={(e) => setDescription(e.target.value)}

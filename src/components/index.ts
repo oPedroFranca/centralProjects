@@ -17,3 +17,5 @@ export { SpinLoading } from "./SpinLoading";
 export { Modal } from "./Modal";
 
 export { CounterCharacter } from "./CounterCharacter";
+
+export { SkeletonButtonNavSidebar } from "./SkeletonButtonNavSidebar";

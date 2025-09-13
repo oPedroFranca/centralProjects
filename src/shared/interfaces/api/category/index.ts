@@ -7,3 +7,10 @@ export interface ICategoryResponse {
   success: boolean;
   message: string;
 }
+
+export interface ICategoryResponse {
+  id: string;
+  name: string;
+  description?: string;
+  createdAt: string;
+}

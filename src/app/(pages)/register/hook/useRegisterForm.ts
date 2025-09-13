@@ -1,6 +1,6 @@
-import { usePostRegister } from "@/shared/hooks";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { usePostRegister } from './usePostRegister';
 import * as yup from "yup";
 
 interface IRegisterForm {

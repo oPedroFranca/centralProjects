@@ -52,7 +52,7 @@ export const Input = tw.input<InputProps>`
   ${({ $hasErrorMessage }) =>
     $hasErrorMessage
       ? 'border-red-400/50 focus:border-red-400/50 bg-red-500/5'
-      : 'border-white/20 focus:border-primary/50 focus:bg-background/60'}
+      : 'border-white/20 focus:border-secondary-purple-400 focus:bg-background/60'}
 `;
 
 export const EyeIcon = tw.div`

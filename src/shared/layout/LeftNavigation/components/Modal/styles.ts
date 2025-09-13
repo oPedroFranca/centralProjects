@@ -72,17 +72,3 @@ export const Label = tw.label`
   font-medium
   text-sm
 `;
-
-/** Input: estiliza o seu Input base via tw() */
-export const Input = tw(BaseInput)`
-  backdrop-blur-sm
-  border-white/20
-  focus:border-secondary-purple-400
-  focus:bg-background/30
-  placeholder:text-primary-gray-300
-  transition-all
-  duration-300
-  text-sm
-  h-10
-  shadow-lg
-`;
