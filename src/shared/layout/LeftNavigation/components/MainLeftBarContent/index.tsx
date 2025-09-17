@@ -50,7 +50,7 @@ export const MainLeftBarContent = () => {
 
       <S.List>
         {loadingRequest ? (
-          <SkeletonButtonNavSidebar count={3} />
+          <SkeletonButtonNavSidebar count={4} />
         ) : (
           categoriesData.map((category) => (
             <ButtonNavSidebar
