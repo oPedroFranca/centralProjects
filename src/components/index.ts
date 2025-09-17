@@ -19,3 +19,5 @@ export { Modal } from "./Modal";
 export { CounterCharacter } from "./CounterCharacter";
 
 export { SkeletonButtonNavSidebar } from "./SkeletonButtonNavSidebar";
+
+export { Toast } from "./Toast";

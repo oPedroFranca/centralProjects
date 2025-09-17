@@ -20,7 +20,7 @@ export const CardContainer = tw.div`
   hover:shadow-2xl
   transition-all
   duration-500
-  hover:scale-[1.02]
+  hover:scale-[1]
   hover:-translate-y-1
 
   cursor-pointer

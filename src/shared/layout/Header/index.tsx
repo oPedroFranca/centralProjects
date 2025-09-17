@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <S.Container $isMinimizedSidebar={isMinimizedSidebar}>
       <S.HeaderWrapper>
-        <div className="w-[100px]"></div>
+        <div className=""></div>
 
         <S.DateContainer>
           <CiCalendar className="h-4 w-4 text-secondary-purple-300" />
