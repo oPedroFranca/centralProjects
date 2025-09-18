@@ -9,12 +9,13 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard = ({ project, onProjectClick }: ProjectCardProps) => {
-  // const handleCardClick = () => {
-  //   onProjectClick(project);
-  // };
+  
+  const handleCardClick = () => {
+    onProjectClick(project);
+  };
 
   return (
-    <S.CardContainer >
+    <S.CardContainer onClick={handleCardClick}>
       <S.GradientOverlay />
 
       <CardHeader project={project} />
