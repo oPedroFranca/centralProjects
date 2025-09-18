@@ -8,7 +8,7 @@ import { useState } from "react";
 import ModalProjectDetails from "./components/ModalProjectDetails";
 import * as S from "./styles";
 
-export default function ProjectCards() {
+export const ProjectCards = () => {
   const [isModalOpenProject, setIsModalOpenProject] = useState(false);
   const [isModalOpenDetails, setIsModalOpenDetails] = useState(false);
   const [selectedProject, setSelectedProject] = useState<any | null>(null);
