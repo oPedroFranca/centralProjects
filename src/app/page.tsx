@@ -1,4 +1,6 @@
-import ProjectCards from '@/screens/ProjectCards';
+'use client';
+
+import { ProjectCards } from "@/screens";
 
 export default function Home() {
   return <ProjectCards />;

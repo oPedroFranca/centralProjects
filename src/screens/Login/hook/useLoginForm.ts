@@ -1,8 +1,8 @@
 'use client';
 
-import { usePostLogin } from "@/app/(pages)/login/hook/usePostLogin";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from 'react-hook-form';
+import { usePostLogin } from "./usePostLogin";
 import * as yup from "yup";
 
 interface ILoginForm {
