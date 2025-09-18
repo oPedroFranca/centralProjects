@@ -12,7 +12,7 @@ import * as S from './styles';
 import { useLoginForm } from './hook/useLoginForm';
 
 export default function Login() {
-  const { register, handleSubmit, errors } = useLoginForm();
+  const { register, handleSubmit, errors, loading } = useLoginForm();
 
   return (
     <S.Container>
@@ -46,9 +46,7 @@ export default function Login() {
             leftIcon={<LuLock size={16} />}
           />
 
-          <Button type="submit" onClick={handleSubmit}>
-            Entrar
-          </Button>
+          <Button type="submit" loading={loading} onClick={handleSubmit}> Entrar</Button>
         </div>
 
         <S.Options>

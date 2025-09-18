@@ -21,6 +21,7 @@ export default {
           "gray-600": "#212121",
           "gray-700": "#1C1C1F",
           "gray-800": "#161618",
+          "gray-900": "#101012",
         },
 
         secondary: {

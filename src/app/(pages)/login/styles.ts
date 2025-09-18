@@ -6,6 +6,7 @@ export const Container = tw.div`
   h-screen
   w-screen
   items-center
+  bg-primary-gray-900
 `;
 
 export const LogoContainer = tw.div`

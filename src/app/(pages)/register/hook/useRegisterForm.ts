@@ -26,7 +26,7 @@ const registerSchema = yup.object({
 });
 
 export function useRegisterForm() {
-  const { registerUser } = usePostRegister();
+  const { registerUser, loading } = usePostRegister();
 
   const {
     register,
@@ -51,5 +51,6 @@ export function useRegisterForm() {
     register,
     handleSubmit: handleSubmit(onSubmit),
     errors,
+    loading
   };
 }

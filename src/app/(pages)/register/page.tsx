@@ -13,7 +13,7 @@ import { useRegisterForm } from './hook/useRegisterForm';
 import * as S from './styles';
 
 export default function Register() {
-  const { register, handleSubmit, errors } = useRegisterForm();
+  const { register, handleSubmit, errors, loading } = useRegisterForm();
 
   return (
     <S.Container>
@@ -73,7 +73,7 @@ export default function Register() {
             leftIcon={<LuLock size={16} />}
           />
 
-          <Button type="submit" onClick={handleSubmit} >Register</Button>
+          <Button type="submit" onClick={handleSubmit} loading={loading} >Register</Button>
         </div>
 
 

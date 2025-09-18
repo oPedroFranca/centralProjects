@@ -16,7 +16,7 @@ const loginSchema = yup.object({
 });
 
 export function useLoginForm() {
-  const { loginUser } = usePostLogin();
+  const { loginUser, loading } = usePostLogin();
 
   const {
     register,
@@ -39,5 +39,6 @@ export function useLoginForm() {
     register,
     handleSubmit: handleSubmit(onSubmit),
     errors,
+    loading
   };
 }
