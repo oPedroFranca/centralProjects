@@ -15,10 +15,11 @@ export const Backdrop = tw.div`
 export const Dialog = tw.div`
   relative
   w-auto
-  max-w-[800px]
+  max-w-[920px]
   min-w-[320px]
   max-h-[95vh]
   p-5
+  overflow-scroll
 
   rounded-md
 
@@ -27,7 +28,7 @@ export const Dialog = tw.div`
 
   shadow-2xl
 
-  ring-2
+  ring-1
   ring-primary-gray-500/40
   dark:ring-primary-gray-400/30
 `;

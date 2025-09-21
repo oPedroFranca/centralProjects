@@ -4,6 +4,7 @@ import tailwindcssAnimate from "tailwindcss-animate";
 export default {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/screens/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/layout/**/*.{js,ts,jsx,tsx,mdx}",

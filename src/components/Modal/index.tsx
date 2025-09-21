@@ -1,9 +1,9 @@
-"use client";;
+"use client";
 
 import { createPortal } from "react-dom";
-import { useModalAccessibility } from './hooks/useModalAccessibility';
-import { ModalFooter } from './Footer';
-import { ModalHeader } from './Header';
+import { useModalAccessibility } from "./hooks/useModalAccessibility";
+import { ModalFooter } from "./Footer";
+import { ModalHeader } from "./Header";
 import * as S from "./styles";
 
 interface IModalProps {
@@ -16,6 +16,7 @@ interface IModalProps {
   children?: React.ReactNode;
   title?: string;
   loading?: boolean;
+  className?: string;
 }
 
 export const Modal = ({
@@ -28,13 +29,15 @@ export const Modal = ({
   children,
   title,
   loading = false,
+  className,
 }: IModalProps) => {
   const { dialogRef } = useModalAccessibility(isOpen, onClose);
 
   if (!isOpen) return null;
+
   return createPortal(
     <S.Backdrop onMouseDown={(e: React.MouseEvent<HTMLDivElement>) => { if (e.target === e.currentTarget) onClose(); }}>
-      <S.Dialog {...dialogRef}>
+      <S.Dialog {...dialogRef} className={className}>
         <ModalHeader title={title} onClose={onClose} />
 
         {children}
