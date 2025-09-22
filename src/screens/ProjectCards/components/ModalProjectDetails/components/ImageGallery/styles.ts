@@ -10,8 +10,8 @@ export const GalleryHeader = tw.div`
 `;
 
 export const IconPhoto = tw(HiOutlinePhotograph)`
-  w-4
-  h-4
+  w-5
+  h-5
   text-secondary-purple-300
 `;
 
