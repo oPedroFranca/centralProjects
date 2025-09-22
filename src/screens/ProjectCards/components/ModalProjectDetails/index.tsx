@@ -5,6 +5,8 @@ import { Modal } from "@/components";
 import { HeaderProjectDetails } from "./components/HeaderProjectDetails";
 import { ImageGallery } from "./components/ImageGallery";
 import { Timeline } from './components/Timeline';
+import { Description } from './components/Description';
+import { TeamProject } from './components/TeamProject';
 import * as S from "./styles";
 
 interface ModalProjectDetailsProps {
@@ -26,9 +28,13 @@ const ModalProjectDetails = ({ isOpen, onClose, projectData }: ModalProjectDetai
       <div className="space-y-5">
         <HeaderProjectDetails projectData={projectData} />
 
-        <ImageGallery projectData={projectData} />
+        {/* <ImageGallery projectData={projectData} />
 
         <Timeline projectData={projectData} />
+
+        <Description projectData={projectData} /> */}
+
+        <TeamProject projectData={projectData} />
       </div>
     </Modal>
   );
