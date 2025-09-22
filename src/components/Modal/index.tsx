@@ -9,7 +9,7 @@ import * as S from "./styles";
 interface IModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSubmit: () => void;
+  onSubmit?: () => void;
   okText?: string;
   cancelText?: string;
   hideFooter?: boolean;

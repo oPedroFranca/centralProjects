@@ -1,20 +1,5 @@
 import tw from "tailwind-styled-components";
-
-export const Container = tw.div`
-  flex
-  flex-col
-  relative
-  rounded-xl
-  overflow-hidden
-  bg-gradient-to-br
-  from-primary-gray-700/20
-  to-primary-gray-700/5
-  backdrop-blur-sm
-  border
-  border-primary-gray-500/20
-  p-4
-  gap-4
-`;
+import { HiOutlinePhotograph } from "react-icons/hi";
 
 export const GalleryHeader = tw.div`
   flex
@@ -22,7 +7,12 @@ export const GalleryHeader = tw.div`
   gap-2
   text-sm
   font-medium
-  text-muted-gray-300
+`;
+
+export const IconPhoto = tw(HiOutlinePhotograph)`
+  w-4
+  h-4
+  text-secondary-purple-300
 `;
 
 export const Text = tw.span``;
@@ -52,28 +42,103 @@ export const ImageItem = tw.div`
   border-primary-gray-500/20
   shadow-lg
   group
-  cursor-pointer
   flex-1
 `;
 
-export const ImageOverlay = tw.div`
-  absolute
-  w-[150px]
-  h-[30px]
-  m-auto
-  inset-0
+export const Image = tw.img`
+  w-full
+  h-full
+  object-cover
+  transition-transform
+  duration-300
+  ease-in-out
+  group-hover:scale-105
+`;
+
+export const EmptyText = tw.p`
+  w-full
+  h-full
   flex
   items-center
   justify-center
-  opacity-0
-  group-hover:opacity-100
-  bg-black/50
-  text-white
+  text-primary-gray-300
   text-sm
-  px-3
-  py-1
-  rounded-full
-  transition-opacity
-  duration-300
-  ease-in-out
 `;
+
+export const NavButtonLeft = tw.button`
+  absolute
+  top-1/2
+  -translate-y-1/2
+  left-3
+  w-10
+  h-10
+  rounded-full
+  bg-primary-gray-700/60
+  hover:bg-primary-gray-700/80
+  text-white
+  border
+  border-white/20
+  backdrop-blur-sm
+  flex
+  items-center
+  justify-center
+  transition
+  duration-200
+`;
+
+export const NavButtonRight = tw.button`
+  absolute
+  top-1/2
+  -translate-y-1/2
+  right-3
+  w-10
+  h-10
+  rounded-full
+  bg-primary-gray-700/60
+  hover:bg-primary-gray-700/80
+  text-white
+  border
+  border-white/20
+  backdrop-blur-sm
+  flex
+  items-center
+  justify-center
+  transition
+  duration-200
+`;
+
+export const ThumbnailsOverlay = tw.div`
+  absolute
+  bottom-3
+  left-1/2
+  -translate-x-1/2
+  flex
+  gap-2
+  px-3
+  py-2
+  rounded-lg
+  bg-black/40
+  backdrop-blur-sm
+`;
+
+export const ThumbnailImage = tw.img`
+  w-full
+  h-full
+  object-cover
+`;
+
+export const ThumbnailButton = tw.button<{ $isActive: boolean }>`
+  relative
+  w-14
+  h-12
+  rounded-md
+  overflow-hidden
+  border-2
+  transition
+  duration-200
+  ${({ $isActive }) =>
+    $isActive
+      ? "border-secondary-purple-300"
+      : "border-transparent hover:border-white/50"}
+`;
+

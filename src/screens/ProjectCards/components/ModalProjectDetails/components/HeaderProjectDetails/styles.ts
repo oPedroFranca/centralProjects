@@ -20,7 +20,6 @@ export const Title = tw.div`
   from-primary-gray-200
   to-primary-gray-200/70
   bg-clip-text
-  text-transparent
   flex
   items-center
   gap-3

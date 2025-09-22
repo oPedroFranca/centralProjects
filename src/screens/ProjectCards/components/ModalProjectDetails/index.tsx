@@ -4,6 +4,7 @@ import { Modal } from "@/components";
 
 import { HeaderProjectDetails } from "./components/HeaderProjectDetails";
 import { ImageGallery } from "./components/ImageGallery";
+import { Timeline } from './components/Timeline';
 import * as S from "./styles";
 
 interface ModalProjectDetailsProps {
@@ -13,17 +14,21 @@ interface ModalProjectDetailsProps {
 }
 
 const ModalProjectDetails = ({ isOpen, onClose, projectData }: ModalProjectDetailsProps) => {
-  const handleSubmit = async () => {
-    console.log("Enviou belezeira");
-  };
+  console.log(projectData);
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} onSubmit={handleSubmit} className="bg-primary-gray-800 w-full" >
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      className="bg-primary-gray-800 w-full"
+      hideFooter
+    >
       <div className="space-y-5">
+        <HeaderProjectDetails projectData={projectData} />
 
-        <HeaderProjectDetails />
+        <ImageGallery projectData={projectData} />
 
-        <ImageGallery />
+        <Timeline projectData={projectData} />
       </div>
     </Modal>
   );

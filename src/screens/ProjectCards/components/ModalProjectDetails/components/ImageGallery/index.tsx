@@ -1,27 +1,70 @@
-import { HiOutlinePhotograph } from "react-icons/hi";
+"use client";
+
+import { useState } from "react";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { ContainerModalProject } from '@/components';
 import * as S from "./styles";
 
-export const ImageGallery = () => {
+interface ImageGalleryProps {
+  projectData: {
+    images?: string[];
+  };
+}
+
+export const ImageGallery = ({ projectData }: ImageGalleryProps) => {
+  const images = projectData?.images ?? [];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const hasMany = images.length > 1;
+
+  const goPrev = () => setCurrentIndex((i) => (i - 1 + images.length) % images.length);
+  const goNext = () => setCurrentIndex((i) => (i + 1) % images.length);
+
   return (
-    <S.Container>
+    <ContainerModalProject>
       <S.GalleryHeader>
-        <HiOutlinePhotograph className="w-4 h-4 text-secondary-purple-300" />
+        <S.IconPhoto />
         <S.Text>Galeria de Imagens</S.Text>
-        <S.CountBadge>4 imagens</S.CountBadge>
+        <S.CountBadge>
+          {images.length} {images.length === 1 ? "Image" : "Images"}
+        </S.CountBadge>
       </S.GalleryHeader>
 
       <S.ImagesWrapper>
         <S.ImageItem>
-          <img
-            src="https://images.unsplash.com/photo-1685558589023-3297b012d8bc?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Projeto - Image 2"
-            className="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+          {images[currentIndex] ? (
+            <S.Image
+              src={images[currentIndex]}
+              alt={`Projeto - Imagem ${currentIndex + 1}`}
             />
-          <S.ImageOverlay>
-            Clique para ampliar
-          </S.ImageOverlay>
+          ) : (
+            <S.EmptyText>Sem imagens</S.EmptyText>
+          )}
+
+          {hasMany && (
+            <>
+              <S.NavButtonLeft onClick={goPrev} >
+                <FiChevronLeft />
+              </S.NavButtonLeft>
+              <S.NavButtonRight onClick={goNext}>
+                <FiChevronRight />
+              </S.NavButtonRight>
+
+              <S.ThumbnailsOverlay>
+                {images.map((img, index) => (
+                  <S.ThumbnailButton
+                    key={index}
+                    $isActive={index === currentIndex}
+                    onClick={() => setCurrentIndex(index)}
+                  >
+                    <S.ThumbnailImage src={img} alt={`Miniatura ${index + 1}`} />
+                  </S.ThumbnailButton>
+                ))}
+              </S.ThumbnailsOverlay>
+            </>
+          )}
         </S.ImageItem>
       </S.ImagesWrapper>
-    </S.Container>
+    </ContainerModalProject>
   );
 };

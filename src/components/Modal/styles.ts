@@ -19,7 +19,8 @@ export const Dialog = tw.div`
   min-w-[320px]
   max-h-[95vh]
   p-5
-  overflow-scroll
+  overflow-auto
+  overflow-x-hidden
 
   rounded-md
 

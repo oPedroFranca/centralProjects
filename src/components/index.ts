@@ -21,3 +21,5 @@ export { CounterCharacter } from "./CounterCharacter";
 export { SkeletonButtonNavSidebar } from "./SkeletonButtonNavSidebar";
 
 export { Toast } from "./Toast";
+
+export { ContainerModalProject } from "./ContainerModalProject";
