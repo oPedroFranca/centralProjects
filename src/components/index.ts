@@ -23,3 +23,5 @@ export { SkeletonButtonNavSidebar } from "./SkeletonButtonNavSidebar";
 export { Toast } from "./Toast";
 
 export { ContainerModalProject } from "./ContainerModalProject";
+
+export { Tooltip } from "./Tooltip";

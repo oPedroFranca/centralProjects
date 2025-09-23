@@ -1,13 +1,12 @@
-"use client";
-
+"use client";;
 import { Modal } from "@/components";
 
 import { HeaderProjectDetails } from "./components/HeaderProjectDetails";
+import { ProjectTechnologies } from "./components/TechnologiesUsed";
+import { TeamProject } from "./components/TeamProject";
+import { Description } from "./components/Description";
+import { Timeline } from "./components/Timeline";
 import { ImageGallery } from "./components/ImageGallery";
-import { Timeline } from './components/Timeline';
-import { Description } from './components/Description';
-import { TeamProject } from './components/TeamProject';
-import * as S from "./styles";
 
 interface ModalProjectDetailsProps {
   isOpen: boolean;
@@ -28,13 +27,15 @@ const ModalProjectDetails = ({ isOpen, onClose, projectData }: ModalProjectDetai
       <div className="space-y-5">
         <HeaderProjectDetails projectData={projectData} />
 
-        {/* <ImageGallery projectData={projectData} />
+        <ImageGallery projectData={projectData} />
 
         <Timeline projectData={projectData} />
 
-        <Description projectData={projectData} /> */}
+        <Description projectData={projectData} />
 
         <TeamProject projectData={projectData} />
+
+        <ProjectTechnologies technologies={["React", "TypeScript", "TailwindCSS", "CSS", "HTML"]} />
       </div>
     </Modal>
   );

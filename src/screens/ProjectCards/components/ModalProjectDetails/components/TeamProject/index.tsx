@@ -1,4 +1,4 @@
-import { ContainerModalProject } from '@/components';
+import { ContainerModalProject, Tooltip } from '@/components';
 import { FaUsers } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FiGithub } from "react-icons/fi";
