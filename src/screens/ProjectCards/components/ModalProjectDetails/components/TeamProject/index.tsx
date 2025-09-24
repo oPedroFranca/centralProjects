@@ -24,12 +24,10 @@ export const TeamProject = ({ projectData }: Props) => {
   if (!participants || participants.length === 0) return null;
 
   return (
-    <ContainerModalProject>
-      <S.TeamHeader>
-        <FaUsers size={20} className="text-secondary-purple-300" />
-        <S.Title>Equipe do Projeto</S.Title>
-      </S.TeamHeader>
-
+    <ContainerModalProject
+      title="Equipe do Projeto"
+      icon={<FaUsers size={18} />}
+    >
       <S.TeamGrid>
         {participants.map((participant, index) => (
           <S.TeamItem key={index}>

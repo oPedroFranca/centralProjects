@@ -11,7 +11,7 @@ export const ProjectTechnologies = ({ technologies }: Props) => {
   if (!technologies || technologies.length === 0) return null;
 
   return (
-    <ContainerModalProject title="Tecnologias Utilizadas" icon={<FaCode className="text-secondary-purple-300" size={20} />}>
+    <ContainerModalProject title="Tecnologias Utilizadas" icon={<FaCode size={18} />}>
       <S.BadgesWrapper>
         {technologies.map((tech, index) => (
           <S.Badge key={index}>

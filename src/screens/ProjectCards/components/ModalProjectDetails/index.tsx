@@ -7,6 +7,8 @@ import { TeamProject } from "./components/TeamProject";
 import { Description } from "./components/Description";
 import { Timeline } from "./components/Timeline";
 import { ImageGallery } from "./components/ImageGallery";
+import { ProjectLinks } from "./components/ProjectLinks";
+import { FooterProjectDetails } from "./components/FooterProjectDetails";
 
 interface ModalProjectDetailsProps {
   isOpen: boolean;
@@ -36,6 +38,10 @@ const ModalProjectDetails = ({ isOpen, onClose, projectData }: ModalProjectDetai
         <TeamProject projectData={projectData} />
 
         <ProjectTechnologies technologies={["React", "TypeScript", "TailwindCSS", "CSS", "HTML"]} />
+
+        <ProjectLinks projectData={projectData} />
+
+        <FooterProjectDetails projectData={projectData} />
       </div>
     </Modal>
   );

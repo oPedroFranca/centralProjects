@@ -25,7 +25,7 @@ export const Timeline = ({ projectData }: Props) => {
   }
 
   return (
-    <ContainerModalProject title="Linha do Tempo" icon={<RiTimelineView size={20} />}>
+    <ContainerModalProject title="Linha do Tempo" icon={<RiTimelineView size={18} />}>
       {(startDate || endDate) && (
         <S.TimelineGrid>
           {startDate && (

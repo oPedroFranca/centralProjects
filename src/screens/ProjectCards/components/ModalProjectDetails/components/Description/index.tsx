@@ -1,4 +1,6 @@
 import { ContainerModalProject } from '@/components';
+import { LuFileText } from "react-icons/lu";
+
 import * as S from "./styles";
 
 type Props = {
@@ -9,8 +11,10 @@ type Props = {
 
 export const Description = ({ projectData }: Props) => {
   return (
-    <ContainerModalProject>
-      <S.Title>Project Description</S.Title>
+    <ContainerModalProject
+      title="Project Description"
+      icon={<LuFileText size={18}/>}
+    >
       <S.Text>{projectData.description}</S.Text>
     </ContainerModalProject>
   );

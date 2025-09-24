@@ -1,17 +1,5 @@
 import tw from "tailwind-styled-components";
 
-export const TeamHeader = tw.div`
-  flex
-  items-center
-  gap-2
-`;
-
-export const Title = tw.h3`
-  text-lg
-  font-semibold
-  text-primary-gray-200
-`;
-
 export const TeamGrid = tw.div`
   grid
   grid-cols-1
