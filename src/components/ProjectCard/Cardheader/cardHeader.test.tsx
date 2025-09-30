@@ -2,20 +2,42 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import CardHeader from './index';
+import { Project } from '@/shared/interfaces';
 
 describe('CardHeader Component', () => {
-  const mockProjectWithImage = {
+  const mockProjectWithImage: Project = {
+    id: 1,
     name: 'Test Project',
+    description: 'Test description',
     image: 'https://example.com/image.jpg',
+    categoryId: '1',
+    status: 'active',
+    participants: [],
+    technologies: [],
+    startDate: '2025-01-01',
   };
 
-  const mockProjectWithImages = {
+  const mockProjectWithImages: Project = {
+    id: 2,
     name: 'Test Project',
+    description: 'Test description',
     images: ['https://example.com/image1.jpg', 'https://example.com/image2.jpg'],
+    categoryId: '1',
+    status: 'active',
+    participants: [],
+    technologies: [],
+    startDate: '2025-01-01',
   };
 
-  const mockProjectWithoutImage = {
+  const mockProjectWithoutImage: Project = {
+    id: 3,
     name: 'Test Project Without Image',
+    description: 'Test description',
+    categoryId: '1',
+    status: 'active',
+    participants: [],
+    technologies: [],
+    startDate: '2025-01-01',
   };
 
   it('should render project name', () => {
@@ -69,25 +91,18 @@ describe('CardHeader Component', () => {
     // Calendar icon is rendered as part of the S.CalendarIcon component
   });
 
-  it('should handle project with empty name', () => {
-    const projectWithEmptyName = {
-      name: '',
-      image: 'https://example.com/image.jpg',
-    };
-    
-    render(<CardHeader project={projectWithEmptyName} />);
-    
-    // Should render the fallback text for empty name
-    expect(screen.getByText('Projeto sem nome')).toBeInTheDocument();
-    const image = screen.getByAltText('Projeto');
-    expect(image).toHaveAttribute('src', 'https://example.com/image.jpg');
-  });
-
   it('should prioritize image prop over images array', () => {
-    const projectWithBoth = {
+    const projectWithBoth: Project = {
+      id: 4,
       name: 'Test Project',
+      description: 'Test description',
       image: 'https://example.com/single-image.jpg',
       images: ['https://example.com/array-image.jpg'],
+      categoryId: '1',
+      status: 'active',
+      participants: [],
+      technologies: [],
+      startDate: '2025-01-01',
     };
     
     render(<CardHeader project={projectWithBoth} />);

@@ -2,11 +2,7 @@ import CardContent from './CardContent';
 import CardFooter from './CardFooter';
 import CardHeader from './Cardheader';
 import * as S from './styles';
-
-interface ProjectCardProps {
-  project: any;
-  onProjectClick: (project: any) => void;
-}
+import { ProjectCardProps } from '@/shared/interfaces';
 
 export const ProjectCard = ({ project, onProjectClick }: ProjectCardProps) => {
   

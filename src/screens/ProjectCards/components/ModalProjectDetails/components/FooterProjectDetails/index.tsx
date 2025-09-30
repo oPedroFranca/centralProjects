@@ -1,14 +1,13 @@
 import { FiCalendar } from "react-icons/fi";
 import * as S from "./styles";
+import { Project } from "@/shared/interfaces";
 
 type Props = {
-  projectData: {
-    status?: "active" | "offline";
-  };
+  projectData: Project;
 };
 
 export const FooterProjectDetails = ({ projectData }: Props) => {
-  const isActive = projectData.status === "active";
+  const isActive = projectData.status.toLowerCase() === "ativo";
 
   return (
     <S.FooterContainer>

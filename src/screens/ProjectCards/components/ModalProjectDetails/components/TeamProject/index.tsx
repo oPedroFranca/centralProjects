@@ -2,20 +2,12 @@ import { ContainerModalProject, Tooltip } from '@/components';
 import { FaUsers } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FiGithub } from "react-icons/fi";
+import { Project } from "@/shared/interfaces";
 
 import * as S from "./styles";
 
-type Participant = {
-  name: string;
-  role: string;
-  linkedinUrl?: string;
-  githubUrl?: string;
-};
-
 type Props = {
-  projectData: {
-    participants?: Participant[];
-  };
+  projectData: Project;
 };
 
 export const TeamProject = ({ projectData }: Props) => {

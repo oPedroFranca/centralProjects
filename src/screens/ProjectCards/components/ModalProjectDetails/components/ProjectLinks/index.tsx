@@ -1,13 +1,11 @@
 import { Button, ContainerModalProject } from "@/components";
 import { FaGlobe, FaGithub } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
+import { Project } from "@/shared/interfaces";
 import * as S from "./styles";
 
 type Props = {
-  projectData: {
-    link?: string;
-    githubLink?: string;
-  };
+  projectData: Project;
 };
 
 export const ProjectLinks = ({ projectData }: Props) => {

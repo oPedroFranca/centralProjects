@@ -1,12 +1,11 @@
 import { ContainerModalProject } from '@/components';
 import { LuFileText } from "react-icons/lu";
+import { Project } from '@/shared/interfaces';
 
 import * as S from "./styles";
 
 type Props = {
-  projectData: {
-    description?: string;
-  };
+  projectData: Project;
 };
 
 export const Description = ({ projectData }: Props) => {

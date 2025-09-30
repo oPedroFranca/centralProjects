@@ -1,9 +1,6 @@
 import * as S from './styles';
 import { IoCodeSlashOutline } from "react-icons/io5";
-
-interface CardHeaderProps {
-  project: any;
-}
+import { CardHeaderProps } from '@/shared/interfaces';
 
 const CardHeader = ({ project }: CardHeaderProps) => {
   const projectImage = project.image || (project.images && project.images[0]);
@@ -14,7 +11,7 @@ const CardHeader = ({ project }: CardHeaderProps) => {
         <S.ProjectImage>
           <img
             src={projectImage}
-            alt={project.name || 'Projeto'}
+            alt={project.name}
             className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
           />
         </S.ProjectImage>
@@ -27,7 +24,7 @@ const CardHeader = ({ project }: CardHeaderProps) => {
       <S.Metadata>
         <S.ProjectTitle>
           <S.CodeIcon />
-          {project.name || 'Projeto sem nome'}
+          {project.name}
         </S.ProjectTitle>
 
         <S.ProjectMetaData>

@@ -1,5 +1,6 @@
 "use client";;
 import { Modal } from "@/components";
+import { Project } from "@/shared/interfaces";
 
 import { HeaderProjectDetails } from "./components/HeaderProjectDetails";
 import { ProjectTechnologies } from "./components/TechnologiesUsed";
@@ -13,11 +14,15 @@ import { FooterProjectDetails } from "./components/FooterProjectDetails";
 interface ModalProjectDetailsProps {
   isOpen: boolean;
   onClose: () => void;
-  projectData?: any;
+  projectData?: Project;
 }
 
 const ModalProjectDetails = ({ isOpen, onClose, projectData }: ModalProjectDetailsProps) => {
   console.log(projectData);
+
+  if (!projectData) {
+    return null;
+  }
 
   return (
     <Modal

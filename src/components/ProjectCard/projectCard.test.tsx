@@ -2,16 +2,18 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { ProjectCard } from './index';
+import { Project } from '@/shared/interfaces';
 
 describe('ProjectCard Component', () => {
-  const mockProject = {
+  const mockProject: Project = {
     id: 1,
     name: 'Test Project',
     description: 'Test project description',
-    category: 'Development',
-    status: 'Active',
-    author: 'John Doe',
-    createdAt: '2025-01-01',
+    categoryId: '1',
+    status: 'active',
+    participants: [],
+    technologies: ['React', 'TypeScript'],
+    startDate: '2025-01-01',
   };
 
   const mockOnProjectClick = jest.fn();

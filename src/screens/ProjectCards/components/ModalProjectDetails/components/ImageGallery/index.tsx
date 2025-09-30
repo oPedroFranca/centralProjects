@@ -3,16 +3,15 @@
 import { useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { ContainerModalProject } from '@/components';
+import { Project } from "@/shared/interfaces";
 import * as S from "./styles";
 
 interface ImageGalleryProps {
-  projectData: {
-    images?: string[];
-  };
+  projectData: Project;
 }
 
 export const ImageGallery = ({ projectData }: ImageGalleryProps) => {
-  const images = projectData?.images ?? [];
+  const images = projectData.images ?? [];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const hasMany = images.length > 1;

@@ -1,25 +1,42 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
+import { Project } from '@/shared/interfaces';
 import CardContent from './index';
 
 describe('CardContent Component', () => {
-  const mockProjectWithLinks = {
+  const baseMockProject: Project = {
+    id: 1,
+    name: 'Test Project',
     description: 'This is a test project description',
+    categoryId: '1',
+    status: 'Ativo',
+    participants: [],
+    technologies: [],
+    images: [],
+    startDate: '2024-01-01',
+    endDate: '2024-12-31'
+  };
+
+  const mockProjectWithLinks: Project = {
+    ...baseMockProject,
     link: 'https://example.com/demo',
     githubLink: 'https://github.com/user/repo',
   };
 
-  const mockProjectWithoutLinks = {
+  const mockProjectWithoutLinks: Project = {
+    ...baseMockProject,
     description: 'This is a test project without links',
   };
 
-  const mockProjectWithOnlyDemo = {
+  const mockProjectWithOnlyDemo: Project = {
+    ...baseMockProject,
     description: 'This is a test project with only demo link',
     link: 'https://example.com/demo',
   };
 
-  const mockProjectWithOnlyGithub = {
+  const mockProjectWithOnlyGithub: Project = {
+    ...baseMockProject,
     description: 'This is a test project with only github link',
     githubLink: 'https://github.com/user/repo',
   };
@@ -81,7 +98,8 @@ describe('CardContent Component', () => {
   });
 
   it('should handle empty description', () => {
-    const projectWithEmptyDescription = {
+    const projectWithEmptyDescription: Project = {
+      ...baseMockProject,
       description: '',
       link: 'https://example.com/demo',
     };
@@ -90,32 +108,5 @@ describe('CardContent Component', () => {
     
     expect(screen.getByText('Demo')).toBeInTheDocument();
     // Empty description should still render
-  });
-
-  it('should handle undefined description', () => {
-    const projectWithUndefinedDescription = {
-      link: 'https://example.com/demo',
-    };
-    
-    render(<CardContent project={projectWithUndefinedDescription} />);
-    
-    expect(screen.getByText('Demo')).toBeInTheDocument();
-    expect(screen.getByText('Sem descrição disponível')).toBeInTheDocument();
-  });
-
-  it('should handle null project gracefully', () => {
-    render(<CardContent project={null} />);
-    
-    expect(screen.getByText('Projeto sem descrição')).toBeInTheDocument();
-    expect(screen.queryByText('Demo')).not.toBeInTheDocument();
-    expect(screen.queryByText('Código')).not.toBeInTheDocument();
-  });
-
-  it('should handle undefined project gracefully', () => {
-    render(<CardContent project={undefined} />);
-    
-    expect(screen.getByText('Projeto sem descrição')).toBeInTheDocument();
-    expect(screen.queryByText('Demo')).not.toBeInTheDocument();
-    expect(screen.queryByText('Código')).not.toBeInTheDocument();
   });
 });

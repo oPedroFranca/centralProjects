@@ -2,15 +2,13 @@ import { ContainerModalProject } from '@/components';
 import { FiCalendar } from "react-icons/fi";
 import { FaRegClock } from "react-icons/fa";
 import { RiTimelineView } from "react-icons/ri";
+import { Project } from "@/shared/interfaces";
 
 import * as S from "./styles";
 import { TimelineCard } from "./TimelineCard";
 
 type Props = {
-  projectData: {
-    startDate?: string;
-    endDate?: string;
-  };
+  projectData: Project;
 };
 
 export const Timeline = ({ projectData }: Props) => {

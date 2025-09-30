@@ -3,28 +3,12 @@ import * as S from './styles';
 import { FiGithub } from "react-icons/fi";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import CardFooter from '../CardFooter';
-
-interface CardContentProps {
-  project: any;
-}
+import { CardContentProps } from '@/shared/interfaces';
 
 const CardContent = ({ project }: CardContentProps) => {
-  // Handle null/undefined project
-  if (!project) {
-    return (
-      <S.CardContent>
-        <S.ProjectDescription>Projeto sem descrição</S.ProjectDescription>
-        <S.ActionButtons>
-          {/* No action buttons for null/undefined project */}
-        </S.ActionButtons>
-        <CardFooter status='Ativo'/>
-      </S.CardContent>
-    );
-  }
-
   return (
     <S.CardContent>
-      <S.ProjectDescription>{project.description || 'Sem descrição disponível'}</S.ProjectDescription>
+      <S.ProjectDescription>{project.description}</S.ProjectDescription>
 
       <S.ActionButtons>
         {project.link && (

@@ -6,14 +6,15 @@ import { mockCardProject } from "./mockCardProject";
 import ModalCreateProjectCard from "./components/ModalCreateProjectCard";
 import { useState } from "react";
 import ModalProjectDetails from "./components/ModalProjectDetails";
+import { Project } from "@/shared/interfaces";
 import * as S from "./styles";
 
 export const ProjectCards = () => {
   const [isModalOpenProject, setIsModalOpenProject] = useState(false);
   const [isModalOpenDetails, setIsModalOpenDetails] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<any | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | undefined>(undefined);
 
-  const handleOpenDetails = (project: any) => {
+  const handleOpenDetails = (project: Project) => {
     setSelectedProject(project);
     setIsModalOpenDetails(true);
   };
