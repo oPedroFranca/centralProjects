@@ -14,7 +14,7 @@ const CardHeader = ({ project }: CardHeaderProps) => {
         <S.ProjectImage>
           <img
             src={projectImage}
-            alt={project.name}
+            alt={project.name || 'Projeto'}
             className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
           />
         </S.ProjectImage>
@@ -27,7 +27,7 @@ const CardHeader = ({ project }: CardHeaderProps) => {
       <S.Metadata>
         <S.ProjectTitle>
           <S.CodeIcon />
-          {project.name}
+          {project.name || 'Projeto sem nome'}
         </S.ProjectTitle>
 
         <S.ProjectMetaData>

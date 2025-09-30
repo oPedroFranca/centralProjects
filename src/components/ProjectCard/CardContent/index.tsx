@@ -9,9 +9,22 @@ interface CardContentProps {
 }
 
 const CardContent = ({ project }: CardContentProps) => {
+  // Handle null/undefined project
+  if (!project) {
+    return (
+      <S.CardContent>
+        <S.ProjectDescription>Projeto sem descrição</S.ProjectDescription>
+        <S.ActionButtons>
+          {/* No action buttons for null/undefined project */}
+        </S.ActionButtons>
+        <CardFooter status='Ativo'/>
+      </S.CardContent>
+    );
+  }
+
   return (
     <S.CardContent>
-      <S.ProjectDescription>{project.description}</S.ProjectDescription>
+      <S.ProjectDescription>{project.description || 'Sem descrição disponível'}</S.ProjectDescription>
 
       <S.ActionButtons>
         {project.link && (
