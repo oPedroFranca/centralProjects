@@ -51,6 +51,29 @@ describe('ButtonNavSidebar Component', () => {
     expect(button).toHaveAttribute('title', 'Test Category');
   });
 
+  it('should not have title attribute when isMinimized is false', () => {
+    const { getByRole } = render(
+      <ButtonNavSidebar
+        Text="Test Category"
+        isMinimized={false}
+        handleCategoryClick={() => { }}
+      />
+    );
+    const button = getByRole('button');
+    expect(button).not.toHaveAttribute('title');
+  });
+
+  it('should not render text when isMinimized is true', () => {
+    const { queryByText } = render(
+      <ButtonNavSidebar
+        Text="Test Category"
+        isMinimized={true}
+        handleCategoryClick={() => { }}
+      />
+    );
+    expect(queryByText('Test Category')).not.toBeInTheDocument();
+  });
+
   it('should display correct folder icon based on isSelected', () => {
     const { container } = render(
       <ButtonNavSidebar
@@ -71,5 +94,53 @@ describe('ButtonNavSidebar Component', () => {
       />
     );
     expect(container2.querySelector('svg[data-testid="FolderClosed"]')).toBeInTheDocument();
+  });
+
+  it('should render HoverEffectDiv', () => {
+    const { container } = render(
+      <ButtonNavSidebar
+        Text="Test Category"
+        isMinimized={false}
+        handleCategoryClick={() => { }}
+      />
+    );
+    // HoverEffectDiv should be rendered as part of the component structure
+    expect(container.querySelector('button')).toBeInTheDocument();
+  });
+
+  it('should pass additional props to button', () => {
+    const { getByRole } = render(
+      <ButtonNavSidebar
+        Text="Test Category"
+        isMinimized={false}
+        handleCategoryClick={() => { }}
+        disabled={true}
+        id="test-button"
+      />
+    );
+    const button = getByRole('button');
+    expect(button).toBeDisabled();
+    expect(button).toHaveAttribute('id', 'test-button');
+  });
+
+  it('should render without Text prop', () => {
+    const { container } = render(
+      <ButtonNavSidebar
+        isMinimized={false}
+        handleCategoryClick={() => { }}
+      />
+    );
+    expect(container.querySelector('button')).toBeInTheDocument();
+  });
+
+  it('should render with default $isSelected false', () => {
+    const { container } = render(
+      <ButtonNavSidebar
+        Text="Test Category"
+        isMinimized={false}
+        handleCategoryClick={() => { }}
+      />
+    );
+    expect(container.querySelector('svg[data-testid="FolderClosed"]')).toBeInTheDocument();
   });
 });

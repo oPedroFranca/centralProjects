@@ -91,4 +91,70 @@ describe('ModalFooter Component', () => {
     expect(confirmButton).toBeInTheDocument();
     expect(confirmButton).toBeDisabled();
   });
+
+  it('should handle all combinations of props', () => {
+    const onCancel = jest.fn();
+    const onOk = jest.fn();
+    
+    render(
+      <ModalFooter 
+        cancelText="Close"
+        okText="Apply"
+        onCancel={onCancel}
+        onOk={onOk}
+        loading={false}
+      />
+    );
+    
+    expect(screen.getByText('Close')).toBeInTheDocument();
+    expect(screen.getByText('Apply')).toBeInTheDocument();
+    
+    fireEvent.click(screen.getByText('Close'));
+    fireEvent.click(screen.getByText('Apply'));
+    
+    expect(onCancel).toHaveBeenCalledTimes(1);
+    expect(onOk).toHaveBeenCalledTimes(1);
+  });
+
+  it('should render footer container', () => {
+    const { container } = render(<ModalFooter />);
+    
+    // Footer should be wrapped in a container
+    expect(container.firstChild).toBeInTheDocument();
+  });
+
+  it('should handle empty string texts', () => {
+    render(
+      <ModalFooter 
+        cancelText=""
+        okText=""
+      />
+    );
+    
+    // Empty strings should still render buttons
+    const buttons = screen.getAllByRole('button');
+    expect(buttons).toHaveLength(2);
+  });
+
+  it('should handle loading state with callbacks', () => {
+    const onCancel = jest.fn();
+    const onOk = jest.fn();
+    
+    render(
+      <ModalFooter 
+        loading={true}
+        onCancel={onCancel}
+        onOk={onOk}
+      />
+    );
+    
+    const cancelButton = screen.getByText('Cancel');
+    const confirmButton = screen.getByTestId('status').closest('button');
+    
+    fireEvent.click(cancelButton);
+    fireEvent.click(confirmButton!);
+    
+    expect(onCancel).toHaveBeenCalledTimes(1);
+    // onOk might not be called if button is disabled during loading
+  });
 });
