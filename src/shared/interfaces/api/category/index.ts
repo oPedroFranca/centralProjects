@@ -3,6 +3,12 @@ export interface ICategoryPost {
   description?: string;
 }
 
+export interface ICategoryUpdate {
+  id: number;
+  name: string;
+  description?: string;
+}
+
 export interface ICategoryResponse {
   success: boolean;
   message: string;

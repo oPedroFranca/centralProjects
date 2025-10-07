@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ICategoryPost, ICategoryResponse } from "@/shared/interfaces";
-import { createCategory } from '../api/createCategory ';
+import { createCategory } from '../api/createCategory';
 
 export const useCreateCategory = () => {
   const [loadingRequest, setLoadingRequest] = useState(false);
