@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { CounterCharacter, Input, Modal } from "@/components";
 import * as S from "./styles";
 import { useCreateCategory } from '../../hooks/useCreateCategory';
+import { useUpdateCategory } from "../../hooks/useUpdateCategory";
 
 interface ICategoryData {
   id: string;
@@ -23,6 +24,7 @@ const ModalCreateCategory = ({ isOpen, onClose, editCategory, isEditMode = false
   const [description, setDescription] = useState("");
 
   const { fetchCreateCategory, loadingRequest } = useCreateCategory();
+  const { fetchUpdateCategory, loadingUpdate } = useUpdateCategory();
 
   const resetForm = () => {
     setCategoryName("");
@@ -40,8 +42,11 @@ const ModalCreateCategory = ({ isOpen, onClose, editCategory, isEditMode = false
 
   const handleSubmit = async () => {
     if (isEditMode && editCategory) {
-      // TODO: Implementar lógica de update quando o hook estiver pronto
-      console.log('Update category:', { id: editCategory.id, name: categoryName, description });
+      await fetchUpdateCategory({
+        id: editCategory.id,
+        name: categoryName,
+        description,
+      });
     } else {
       await fetchCreateCategory({
         name: categoryName,
