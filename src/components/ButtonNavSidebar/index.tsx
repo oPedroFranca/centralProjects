@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { DropdownActions } from './DropdownActions';
 import * as S from './styles';
 
 interface IButtonNavSidebarProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -7,6 +8,9 @@ interface IButtonNavSidebarProps extends React.ButtonHTMLAttributes<HTMLButtonEl
   isMinimized: boolean;
   handleCategoryClick: () => void;
   icon?: ReactNode;
+  disableThreeDots?: boolean;
+  onEdit?: () => void;
+  onDelete?: () => void;
 }
 
 export const ButtonNavSidebar = ({
@@ -15,6 +19,9 @@ export const ButtonNavSidebar = ({
   isMinimized,
   handleCategoryClick,
   icon,
+  disableThreeDots = false,
+  onEdit,
+  onDelete,
   ...rest
 }: IButtonNavSidebarProps) => {
   return (
@@ -35,7 +42,10 @@ export const ButtonNavSidebar = ({
 
       {!isMinimized && <S.CategoryName>{Text}</S.CategoryName>}
 
-      <S.HoverEffectDiv />
+
+      {!isMinimized && !disableThreeDots && (
+        <DropdownActions onEdit={onEdit} onDelete={onDelete} />
+      )}
     </S.ButtonNavSidebar>
   );
 };

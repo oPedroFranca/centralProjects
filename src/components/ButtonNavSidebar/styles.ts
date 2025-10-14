@@ -16,8 +16,7 @@ export const ButtonNavSidebar = tw.button<IButtonNavSidebarProps>`
   text-left
   transition-all
   duration-300
-  backdrop-blur-sm
-  
+
   group
 
   ${({ $isSelected, isMinimized }) => `
@@ -27,21 +26,6 @@ export const ButtonNavSidebar = tw.button<IButtonNavSidebarProps>`
     }
     ${isMinimized ? 'justify-center' : ''}
   `}
-`;
-
-export const HoverEffectDiv = tw.div`
-  absolute
-  inset-0
-  rounded-lg
-  opacity-0
-  group-hover:opacity-100
-  transition-opacity
-  duration-300
-  bg-gradient-to-r
-  from-transparent
-  via-white/5
-  to-transparent
-  pointer-events-none
 `;
 
 export const CategoryName = tw.span`

@@ -1,9 +1,8 @@
-"use client";
-
+"use client";;
 import logo from '../../../../../../public/logo.png';
-import { LuMinimize2 } from "react-icons/lu";
 import { useSidebarStore } from '@/shared/zustand/isOpenNavSidebarStore';
-import { CgArrowsExpandRight } from "react-icons/cg";
+import { GoSidebarExpand } from "react-icons/go";
+import { GoSidebarCollapse } from "react-icons/go";
 
 import * as S from './styles';
 
@@ -23,11 +22,12 @@ const HeaderLeftBar = () => {
 
       <S.ButtonNavSidebar
         isMinimized={isMinimizedSidebar}
+        disableThreeDots
         icon={
           !isMinimizedSidebar ? (
-            <LuMinimize2 size={16} />
+            <GoSidebarExpand size={16} />
           ) : (
-            <CgArrowsExpandRight size={16} />
+            <GoSidebarCollapse size={16} />
           )
         }
         handleCategoryClick={toggleSidebar}

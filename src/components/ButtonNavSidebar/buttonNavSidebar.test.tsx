@@ -27,15 +27,16 @@ describe('ButtonNavSidebar Component', () => {
 
   it('should call handleCategoryClick on button click', () => {
     const handleCategoryClick = jest.fn();
-    const { getByRole } = render(
+    const { getAllByRole } = render(
       <ButtonNavSidebar
         Text="Test Category"
         isMinimized={false}
         handleCategoryClick={handleCategoryClick}
       />
     );
-    const button = getByRole('button');
-    fireEvent.click(button);
+    const buttons = getAllByRole('button');
+    const mainButton = buttons[0]; // O primeiro botão é o principal
+    fireEvent.click(mainButton);
     expect(handleCategoryClick).toHaveBeenCalledTimes(1);
   });
 
@@ -52,15 +53,16 @@ describe('ButtonNavSidebar Component', () => {
   });
 
   it('should not have title attribute when isMinimized is false', () => {
-    const { getByRole } = render(
+    const { getAllByRole } = render(
       <ButtonNavSidebar
         Text="Test Category"
         isMinimized={false}
         handleCategoryClick={() => { }}
       />
     );
-    const button = getByRole('button');
-    expect(button).not.toHaveAttribute('title');
+    const buttons = getAllByRole('button');
+    const mainButton = buttons[0]; // O primeiro botão é o principal
+    expect(mainButton).not.toHaveAttribute('title');
   });
 
   it('should not render text when isMinimized is true', () => {
@@ -109,7 +111,7 @@ describe('ButtonNavSidebar Component', () => {
   });
 
   it('should pass additional props to button', () => {
-    const { getByRole } = render(
+    const { getAllByRole } = render(
       <ButtonNavSidebar
         Text="Test Category"
         isMinimized={false}
@@ -118,9 +120,10 @@ describe('ButtonNavSidebar Component', () => {
         id="test-button"
       />
     );
-    const button = getByRole('button');
-    expect(button).toBeDisabled();
-    expect(button).toHaveAttribute('id', 'test-button');
+    const buttons = getAllByRole('button');
+    const mainButton = buttons[0]; // O primeiro botão é o principal
+    expect(mainButton).toBeDisabled();
+    expect(mainButton).toHaveAttribute('id', 'test-button');
   });
 
   it('should render without Text prop', () => {
@@ -142,5 +145,30 @@ describe('ButtonNavSidebar Component', () => {
       />
     );
     expect(container.querySelector('svg[data-testid="FolderClosed"]')).toBeInTheDocument();
+  });
+
+  it('should not render dropdown when disableThreeDots is true', () => {
+    const { getAllByRole } = render(
+      <ButtonNavSidebar
+        Text="Test Category"
+        isMinimized={false}
+        handleCategoryClick={() => {}}
+        disableThreeDots={true}
+      />
+    );
+    const buttons = getAllByRole('button');
+    expect(buttons).toHaveLength(1);
+  });
+
+  it('should not render dropdown when isMinimized is true', () => {
+    const { getAllByRole } = render(
+      <ButtonNavSidebar
+        Text="Test Category"
+        isMinimized={true}
+        handleCategoryClick={() => {}}
+      />
+    );
+    const buttons = getAllByRole('button');
+    expect(buttons).toHaveLength(1);
   });
 });

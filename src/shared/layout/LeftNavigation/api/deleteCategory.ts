@@ -6,3 +6,4 @@ export const deleteCategory = async (id: number): Promise<AxiosResponse> => {
 
   return tesseractApi.post(url, { id });
 };
+
