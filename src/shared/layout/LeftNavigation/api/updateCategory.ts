@@ -5,5 +5,5 @@ import { ICategoryUpdate } from '@/shared/interfaces';
 export const updateCategory = async (postData: ICategoryUpdate): Promise<AxiosResponse> => {
   const url = `/Category/updateCategory`;
 
-  return tesseractApi.post(url, postData);
+  return tesseractApi.put(url, postData);
 };

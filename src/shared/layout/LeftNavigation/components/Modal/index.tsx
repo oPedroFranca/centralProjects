@@ -1,39 +1,70 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CounterCharacter, Input, Modal } from "@/components";
 import * as S from "./styles";
 import { useCreateCategory } from '../../hooks/useCreateCategory';
 
+interface ICategoryData {
+  id: string;
+  name: string;
+  description?: string;
+}
+
 interface ModalCreateCategoryProps {
   isOpen: boolean;
   onClose: () => void;
+  editCategory?: ICategoryData | null;
+  isEditMode?: boolean;
 }
 
-const ModalCreateCategory = ({ isOpen, onClose }: ModalCreateCategoryProps) => {
+const ModalCreateCategory = ({ isOpen, onClose, editCategory, isEditMode = false }: ModalCreateCategoryProps) => {
   const [categoryName, setCategoryName] = useState("");
   const [description, setDescription] = useState("");
 
   const { fetchCreateCategory, loadingRequest } = useCreateCategory();
 
-  const handleSubmit = async () => {
-    await fetchCreateCategory({
-      name: categoryName,
-      description,
-    });
-
+  const resetForm = () => {
     setCategoryName("");
     setDescription("");
+  };
 
+  useEffect(() => {
+    if (isEditMode && editCategory) {
+      setCategoryName(editCategory.name);
+      setDescription(editCategory.description || "");
+    } else {
+      resetForm();
+    }
+  }, [isEditMode, editCategory, isOpen]);
+
+  const handleSubmit = async () => {
+    if (isEditMode && editCategory) {
+      // TODO: Implementar lógica de update quando o hook estiver pronto
+      console.log('Update category:', { id: editCategory.id, name: categoryName, description });
+    } else {
+      await fetchCreateCategory({
+        name: categoryName,
+        description,
+      });
+    }
+
+    resetForm();
+    onClose();
+  };
+
+  const handleClose = () => {
+    resetForm();
     onClose();
   };
 
   return (
     <Modal
       isOpen={isOpen}
-      onClose={onClose}
+      onClose={handleClose}
       loading={loadingRequest}
       onSubmit={handleSubmit}
+      className="w-[450px]"
     >
       <S.Wrapper>
         <S.Header>
@@ -41,9 +72,12 @@ const ModalCreateCategory = ({ isOpen, onClose }: ModalCreateCategoryProps) => {
             <S.IconAdd />
           </S.HeaderIcon>
           <S.HeaderText>
-            <S.Title>New Category</S.Title>
+            <S.Title>{isEditMode ? 'Edit Category' : 'New Category'}</S.Title>
             <S.Subtitle>
-              Create a new category to organize your projects.
+              {isEditMode
+                ? 'Edit the category information.'
+                : 'Create a new category to organize your projects.'
+              }
             </S.Subtitle>
           </S.HeaderText>
         </S.Header>

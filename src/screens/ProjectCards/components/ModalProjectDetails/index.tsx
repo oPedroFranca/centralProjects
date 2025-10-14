@@ -18,8 +18,6 @@ interface ModalProjectDetailsProps {
 }
 
 const ModalProjectDetails = ({ isOpen, onClose, projectData }: ModalProjectDetailsProps) => {
-  console.log(projectData);
-
   if (!projectData) {
     return null;
   }

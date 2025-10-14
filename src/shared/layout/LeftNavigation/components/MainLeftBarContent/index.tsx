@@ -9,6 +9,7 @@ import { useSidebarStore } from '@/shared/zustand/isOpenNavSidebarStore';
 import ModalCreateCategory from '../Modal';
 
 import { useListCategory } from '../../hooks/useListCategory';
+import { useDeleteCategory } from '../../hooks/useDeleteCategory';
 import * as S from './styles';
 
 interface ICategoriosType {
@@ -21,12 +22,40 @@ export const MainLeftBarContent = () => {
   const [categoriesDefault] = useState<ICategoriosType[]>(mockCategoriesDefault);
   const [selectedCategoryId, setSelectedCategoryId] = useState<number | string | null>(null);
   const [isModalOpenCategory, setIsModalOpenCategory] = useState(false);
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [editingCategory, setEditingCategory] = useState<any>(null);
 
   const { isMinimizedSidebar } = useSidebarStore();
   const { categoriesData, loadingRequest } = useListCategory();
+  const { fetchDeleteCategory, loadingRequest: loadingDelete } = useDeleteCategory();
 
   const handleCategoryClick = (id: number | string) => {
     setSelectedCategoryId(id);
+  };
+
+  const handleEdit = (id: string) => {
+    const category = categoriesData.find(cat => cat.id === id);
+    if (category) {
+      setEditingCategory(category);
+      setIsEditMode(true);
+      setIsModalOpenCategory(true);
+    }
+  };
+
+  const handleDelete = async (id: string) => {
+    await fetchDeleteCategory(id);
+  };
+
+  const handleOpenCreateModal = () => {
+    setIsEditMode(false);
+    setEditingCategory(null);
+    setIsModalOpenCategory(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpenCategory(false);
+    setIsEditMode(false);
+    setEditingCategory(null);
   };
 
   return (
@@ -59,6 +88,8 @@ export const MainLeftBarContent = () => {
               $isSelected={selectedCategoryId === category.id}
               isMinimized={false}
               handleCategoryClick={() => handleCategoryClick(category.id)}
+              onEdit={() => handleEdit(category.id)}
+              onDelete={() => handleDelete(category.id)}
             />
           ))
         )}
@@ -67,7 +98,8 @@ export const MainLeftBarContent = () => {
           Text={"New Category"}
           isMinimized={false}
           handleCategoryClick={() => { }}
-          onClick={() => setIsModalOpenCategory(true)}
+          onClick={handleOpenCreateModal}
+          disableThreeDots
           icon={<FaPlus />}
         />
       </S.List>
@@ -81,7 +113,9 @@ export const MainLeftBarContent = () => {
 
       <ModalCreateCategory
         isOpen={isModalOpenCategory}
-        onClose={() => setIsModalOpenCategory(false)}
+        onClose={handleCloseModal}
+        editCategory={editingCategory}
+        isEditMode={isEditMode}
       />
     </S.Container>
   );

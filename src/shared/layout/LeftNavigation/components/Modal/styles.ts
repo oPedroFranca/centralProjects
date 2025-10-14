@@ -21,7 +21,6 @@ export const HeaderIcon = tw.div`
   justify-center
   relative
 
-  mx-auto
   w-12
   h-12
   rounded-full
@@ -31,7 +30,7 @@ export const HeaderIcon = tw.div`
   backdrop-blur-sm
   border
   border-secondary-purple-300/30
-  
+
   shadow-lg
   shadow-secondary-purple-300/10
 `;

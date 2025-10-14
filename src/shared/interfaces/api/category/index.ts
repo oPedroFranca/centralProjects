@@ -4,7 +4,7 @@ export interface ICategoryPost {
 }
 
 export interface ICategoryUpdate {
-  id: number;
+  id: string;
   name: string;
   description?: string;
 }
