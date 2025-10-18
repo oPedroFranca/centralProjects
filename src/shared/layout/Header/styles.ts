@@ -5,8 +5,7 @@ interface IMainAreaProps {
 }
 
 export const Container = tw.div<IMainAreaProps>`
-  ${(p) =>
-    p.$isMinimizedSidebar ? "w-[calc(100%-65px)]" : "w-[calc(100%-250px)]"}
+  ${(p) => p.$isMinimizedSidebar ? "w-[calc(100%-65px)]" : "w-[calc(100%-250px)]"}
 
   h-[60px]
   fixed
@@ -19,6 +18,7 @@ export const Container = tw.div<IMainAreaProps>`
   transition-all
   duration-300
   ease-in-out
+  z-50
 `;
 
 export const HeaderWrapper = tw.div`
@@ -80,7 +80,7 @@ export const Avatar = tw.div`
 
 export const AvatarFallback = tw.div`
   text-secondary-purple-300
-  relative 
+  relative
   flex
   h-full
   w-full

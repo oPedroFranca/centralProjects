@@ -1,6 +1,6 @@
 import { FiUser } from "react-icons/fi";
 import { CiCalendar } from "react-icons/ci";
-import { useSidebarStore } from '@/shared/zustand/isOpenNavSidebarStore';
+import { useSidebarStore } from "@/shared/zustand";
 import * as S from './styles';
 
 const Header = () => {

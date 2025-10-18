@@ -6,6 +6,7 @@ export const Container = tw.div`
   h-screen
   w-screen
   items-center
+  overflow-auto
   bg-primary-gray-900
 `;
 
@@ -35,8 +36,8 @@ export const Form = tw.div`
   rounded-xl
   text-white
   mb-auto
-  w-full          
-  max-w-[450px]      
+  w-full
+  max-w-[450px]
 `;
 
 

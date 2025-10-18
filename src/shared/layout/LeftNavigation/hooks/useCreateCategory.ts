@@ -2,19 +2,22 @@ import { useState } from "react";
 import { ICategoryPost, ICategoryResponse } from "@/shared/interfaces";
 import { createCategory } from '../api/createCategory';
 import { Toast } from "@/components";
+import { useAppStore } from "@/shared/zustand";
 
 export const useCreateCategory = () => {
-  const [loadingRequest, setLoadingRequest] = useState(false);
+  const { setGlobalLoading, triggerRefetch } = useAppStore();
 
   const fetchCreateCategory = async ({ name, description }: ICategoryPost): Promise<ICategoryResponse | undefined> => {
 
     try {
-      setLoadingRequest(true);
+      setGlobalLoading(true);
       const res = await createCategory({ name, description });
 
       Toast.success('Category created successfully!', {
         description: `Category "${name}" has been created.`
       });
+
+      triggerRefetch();
 
       return res.data;
     } catch (err) {
@@ -25,12 +28,11 @@ export const useCreateCategory = () => {
       });
       throw err;
     } finally {
-      setLoadingRequest(false);
+      setGlobalLoading(false);
     }
   };
 
   return {
     fetchCreateCategory,
-    loadingRequest,
   };
 };

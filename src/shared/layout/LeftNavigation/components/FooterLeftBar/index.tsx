@@ -1,6 +1,6 @@
 import React from 'react';
+import { useSidebarStore } from '@/shared/zustand';
 import * as S from './styles';
-import { useSidebarStore } from '@/shared/zustand/isOpenNavSidebarStore';
 
 const FooterLeftBar = () => {
   const { isMinimizedSidebar } = useSidebarStore();

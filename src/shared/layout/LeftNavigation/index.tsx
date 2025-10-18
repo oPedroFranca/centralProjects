@@ -1,9 +1,9 @@
 "use client";
 
-import { useSidebarStore } from '@/shared/zustand/isOpenNavSidebarStore';
 import HeaderLeftBar from './components/HeaderLeftBar';
 import { MainLeftBarContent } from './components/MainLeftBarContent';
 import FooterLeftBar from './components/FooterLeftBar';
+import { useSidebarStore } from '@/shared/zustand';
 
 import * as S from './styles';
 

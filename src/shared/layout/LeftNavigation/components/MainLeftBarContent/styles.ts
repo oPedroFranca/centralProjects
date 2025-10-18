@@ -9,6 +9,8 @@ export const Container = tw.div`
   h-full
   overflow-auto
   overflow-x-hidden
+
+  pl-3 pr-3
 `;
 
 export const Title = tw.p`
@@ -27,14 +29,14 @@ export const List = tw.div`
 `;
 
 export const NewCategoryButton = tw(DefaultButtonNavSidebar)`
-  bg-transparent 
-  border 
-  border-dashed 
+  bg-transparent
+  border
+  border-dashed
   border-white/20
 `;
 
 export const ConfigButton = tw(DefaultButtonNavSidebar)`
-  flex 
-  w-full 
+  flex
+  w-full
   mt-auto
 `;

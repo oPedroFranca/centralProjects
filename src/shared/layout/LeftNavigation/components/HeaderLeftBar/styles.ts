@@ -9,6 +9,7 @@ export const Container = tw.div`
   justify-between
   border-b
   border-white/20
+  pl-3 pr-3
 `;
 
 export const LogoWrapper = tw.div`

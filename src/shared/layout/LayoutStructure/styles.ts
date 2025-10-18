@@ -19,6 +19,7 @@ export const MainArea = tw.div<IMainAreaProps>`
   transition-all
   duration-300
   ease-in-out
+  overflow-auto
 `;
 
 export const MainContent = tw.div`
@@ -27,6 +28,7 @@ export const MainContent = tw.div`
   gap-4
   mt-[60px]
   p-5
-  h-[calc(100%-60px)]
+
+  min-h-[calc(100vh-60px)]
   bg-[#141413]
 `;

@@ -7,5 +7,4 @@ export const Container = tw.div`
   backdrop-blur-xl
   border-white/10
   rounded-2xl
-  shadow-xl
 `;

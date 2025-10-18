@@ -5,11 +5,11 @@ import { mockCategoriesDefault } from './mockCategories';
 import { ButtonNavSidebar, Divider, SkeletonButtonNavSidebar } from '@/components';
 import { FaPlus } from "react-icons/fa6";
 import { IoSettingsOutline } from "react-icons/io5";
-import { useSidebarStore } from '@/shared/zustand/isOpenNavSidebarStore';
 import ModalCreateCategory from '../Modal';
 
 import { useListCategory } from '../../hooks/useListCategory';
 import { useDeleteCategory } from '../../hooks/useDeleteCategory';
+import { useAppStore, useSidebarStore } from '@/shared/zustand';
 import * as S from './styles';
 
 interface ICategoriosType {
@@ -19,6 +19,7 @@ interface ICategoriosType {
 }
 
 export const MainLeftBarContent = () => {
+  const { globalLoading } = useAppStore();
   const [categoriesDefault] = useState<ICategoriosType[]>(mockCategoriesDefault);
   const [selectedCategoryId, setSelectedCategoryId] = useState<number | string | null>(null);
   const [isModalOpenCategory, setIsModalOpenCategory] = useState(false);
@@ -26,8 +27,8 @@ export const MainLeftBarContent = () => {
   const [editingCategory, setEditingCategory] = useState<any>(null);
 
   const { isMinimizedSidebar } = useSidebarStore();
-  const { categoriesData, loadingRequest } = useListCategory();
-  const { fetchDeleteCategory, loadingRequest: loadingDelete } = useDeleteCategory();
+  const { categoriesData } = useListCategory();
+  const { fetchDeleteCategory } = useDeleteCategory();
 
   const handleCategoryClick = (id: number | string) => {
     setSelectedCategoryId(id);
@@ -66,6 +67,7 @@ export const MainLeftBarContent = () => {
             key={category.id}
             Text={category.name}
             $isSelected={selectedCategoryId === category.id}
+            disableThreeDots
             isMinimized={false}
             handleCategoryClick={() => handleCategoryClick(category.id)}
             icon={category.icon}
@@ -77,8 +79,8 @@ export const MainLeftBarContent = () => {
 
       {!isMinimizedSidebar && <S.Title>Categories</S.Title>}
 
-      <S.List>
-        {loadingRequest ? (
+      <S.List className="mb-2">
+        {globalLoading ? (
           <SkeletonButtonNavSidebar count={4} />
         ) : (
           categoriesData.map((category) => (
@@ -86,6 +88,7 @@ export const MainLeftBarContent = () => {
               key={category.id}
               Text={category.name}
               $isSelected={selectedCategoryId === category.id}
+              disableThreeDots={isMinimizedSidebar}
               isMinimized={false}
               handleCategoryClick={() => handleCategoryClick(category.id)}
               onEdit={() => handleEdit(category.id)}
@@ -107,6 +110,7 @@ export const MainLeftBarContent = () => {
       <S.ConfigButton
         Text={"Configurations"}
         isMinimized={false}
+        disableThreeDots
         handleCategoryClick={() => { }}
         icon={<IoSettingsOutline size={16} />}
       />

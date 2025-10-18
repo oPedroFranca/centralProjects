@@ -1,8 +1,8 @@
 "use client";;
 import logo from '../../../../../../public/logo.png';
-import { useSidebarStore } from '@/shared/zustand/isOpenNavSidebarStore';
 import { GoSidebarExpand } from "react-icons/go";
 import { GoSidebarCollapse } from "react-icons/go";
+import { useSidebarStore } from '@/shared/zustand';
 
 import * as S from './styles';
 

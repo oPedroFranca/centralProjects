@@ -1,5 +1,5 @@
 "use client";;
-import { useSidebarStore } from '@/shared/zustand/isOpenNavSidebarStore';
+import { useSidebarStore } from '@/shared/zustand';
 import Header from '../Header';
 import LeftNavigation from '../LeftNavigation';
 import * as S from './styles';
