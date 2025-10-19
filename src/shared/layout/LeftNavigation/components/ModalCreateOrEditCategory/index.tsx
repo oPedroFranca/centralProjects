@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { CounterCharacter, Input, Modal } from "@/components";
-import * as S from "./styles";
 import { useCreateCategory } from '../../hooks/useCreateCategory';
 import { useUpdateCategory } from "../../hooks/useUpdateCategory";
+import { useAppStore } from "@/shared/zustand";
+import * as S from "./styles";
 
 interface ICategoryData {
   id: string;
@@ -12,23 +13,29 @@ interface ICategoryData {
   description?: string;
 }
 
-interface ModalCreateCategoryProps {
+interface ModalCreateOrEditCategoryProps {
   isOpen: boolean;
   onClose: () => void;
   editCategory?: ICategoryData | null;
   isEditMode?: boolean;
 }
 
-const ModalCreateCategory = ({ isOpen, onClose, editCategory, isEditMode = false }: ModalCreateCategoryProps) => {
+const ModalCreateOrEditCategory = ({ isOpen, onClose, editCategory, isEditMode = false }: ModalCreateOrEditCategoryProps) => {
+  const { globalLoading } = useAppStore();
   const [categoryName, setCategoryName] = useState("");
   const [description, setDescription] = useState("");
 
-  const { fetchCreateCategory, loadingRequest } = useCreateCategory();
-  const { fetchUpdateCategory, loadingUpdate } = useUpdateCategory();
+  const { fetchCreateCategory } = useCreateCategory();
+  const { fetchUpdateCategory } = useUpdateCategory();
 
   const resetForm = () => {
     setCategoryName("");
     setDescription("");
+  };
+
+  const handleClose = () => {
+    resetForm();
+    onClose();
   };
 
   useEffect(() => {
@@ -54,20 +61,14 @@ const ModalCreateCategory = ({ isOpen, onClose, editCategory, isEditMode = false
       });
     }
 
-    resetForm();
-    onClose();
-  };
-
-  const handleClose = () => {
-    resetForm();
-    onClose();
+    handleClose();
   };
 
   return (
     <Modal
       isOpen={isOpen}
       onClose={handleClose}
-      loading={loadingRequest}
+      loading={globalLoading}
       onSubmit={handleSubmit}
       className="w-[450px]"
     >
@@ -115,4 +116,4 @@ const ModalCreateCategory = ({ isOpen, onClose, editCategory, isEditMode = false
   );
 };
 
-export default ModalCreateCategory;
+export default ModalCreateOrEditCategory;

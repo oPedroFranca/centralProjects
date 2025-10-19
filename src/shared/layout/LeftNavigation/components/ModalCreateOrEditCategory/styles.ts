@@ -13,6 +13,7 @@ export const Wrapper = tw.div`
 export const Header = tw.div`
   flex
   gap-3
+  items-center
 `;
 
 export const HeaderIcon = tw.div`
